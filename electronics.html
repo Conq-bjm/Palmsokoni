@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics | PalmSokoni</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="category-page.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-left">
+            <span class="top-bar-welcome">
+                Hi <a href="#" class="top-auth-link">Sign in</a> or <a href="#" class="top-auth-link">register</a>
+            </span>
+
+            <div class="header-localization-nav">
+                <div class="nav-dropdown-item SelectorLang" id="langDropdownTrigger">
+                    <span class="nav-dropdown-label">LAN</span>
+                    <svg class="dropdown-caret-icon" viewBox="0 0 24 24" width="14" height="14">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="currentColor"/>
+                    </svg>
+                    
+                    <ul class="localization-menu alignment-left">
+                        <li data-lang="en" class="active">
+                            <svg class="country-flag-icon" viewBox="0 0 60 30" width="16" height="10">
+                                <clipPath id="a"><path d="M0 0h60v30H0z"/></clipPath>
+                                <g clip-path="url(#a)">
+                                    <path d="M0 0h60v30H0z" fill="#012169"/>
+                                    <path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/>
+                                    <path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" stroke-width="4"/>
+                                    <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+                                    <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+                                </g>
+                            </svg>
+                            <span>English</span>
+                        </li>
+                        <li data-lang="sw">
+                            <svg class="country-flag-icon" viewBox="0 0 3 2" width="16" height="11">
+                                <path d="M0 0h3v2H0z" fill="#1eb53a"/>
+                                <path d="M0 2l3-2H0z" fill="#00a3dd"/>
+                                <path d="M0 2L3 0" stroke="#fcd116" stroke-width=".6"/>
+                                <path d="M0 2L3 0" stroke="#000" stroke-width=".4"/>
+                            </svg>
+                            <span>Swahili</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-dropdown-item SelectorCur" id="curDropdownTrigger">
+                    <span class="nav-dropdown-label">CUR</span>
+                    <svg class="dropdown-caret-icon" viewBox="0 0 24 24" width="14" height="14">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="currentColor"/>
+                    </svg>
+                    
+                    <ul class="localization-menu alignment-left">
+                        <li data-currency="TZS" class="active"><span>TZS (Tanzanian Shilling)</span></li>
+                        <li data-currency="USD"><span>USD (US Dollar)</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="#" class="help-center-link">Help & Contact</a>
+            <a href="#" class="top-faqs-link">FAQs</a>
+        </div>
+        
+        <div class="top-right">
+            <a href="#" class="sell-btn">Sell on PalmSokoni</a>
+            <button class="dark-mode-toggle"><i data-lucide="moon"></i></button>
+        </div>
+    </div>
+
+    <header class="header-main">
+        <div class="header-left-group">
+            <a href="index.html" class="logo">PalmSokoni</a>
+        
+            <div class="shop-by-cat" id="shopByCategoryTrigger">
+                <div class="cat-text">
+                    <span>Shop by</span>
+                    <span>category</span>
+                </div>
+                <i data-lucide="chevron-down" class="cat-arrow"></i>
+            </div>
+
+            <div class="ebay-mega-dropdown" id="ebayMegaDropdown">
+                <div class="mega-dropdown-inner">
+                    
+                    <div class="mega-column">
+                        <h3 class="main-cat-title"><a href="#">Motors</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Parts & accessories</a></li>
+                            <li><a href="#">Cars & trucks</a></li>
+                            <li><a href="#">Motorcycles</a></li>
+                            <li><a href="#">Other vehicles</a></li>
+                        </ul>
+
+                        <h3 class="main-cat-title"><a href="#">Clothing & Accessories</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Women's Clothing</a></li>
+                            <li><a href="#">Men's Clothing</a></li>
+                            <li><a href="#">Handbags & Purses</a></li>
+                            <li><a href="#">Collectible Sneakers</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mega-column">
+                        <h3 class="main-cat-title"><a href="electronics.html">Electronics</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Computers & Tablets</a></li>
+                            <li><a href="#">Cell Phones & Accessories</a></li>
+                            <li><a href="#">Video Games & Consoles</a></li>
+                            <li><a href="#">Cameras & Photo</a></li>
+                        </ul>
+
+                        <h3 class="main-cat-title"><a href="#">Business & Industrial</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Heavy Equipment Parts</a></li>
+                            <li><a href="#">Restaurant & Food Service</a></li>
+                            <li><a href="#">Test & Inspection Equipment</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mega-column">
+                        <h3 class="main-cat-title"><a href="#">Collectibles & Art</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Sports Memorabilia</a></li>
+                            <li><a href="#">Trading Cards</a></li>
+                            <li><a href="#">Coins & Paper Money</a></li>
+                        </ul>
+
+                        <h3 class="main-cat-title"><a href="#">Home & Garden</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Tools & Workshop Equipment</a></li>
+                            <li><a href="#">Kitchen, Dining & Bar</a></li>
+                            <li><a href="#">Yard, Garden & Outdoor Living</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" placeholder="Search for anything...">
+            <div class="search-tools">
+                <button class="camera-btn" id="openCameraSearch" title="Search by image">
+                    <i data-lucide="camera"></i>
+                </button>
+                <div class="search-icon-box">
+                    <i data-lucide="search"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            
+            <div class="action-item-dropdown-container" id="accountMenuWrapper">
+                <a href="#" class="action-item" id="accountDropdownTrigger">
+                    <i data-lucide="user"></i>
+                </a>
+
+                <div class="account-dropdown-card" id="accountDropdownCard">
+                    <div class="dropdown-user-profile-header">
+                        <div class="user-avatar-circle">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="user-greeting-meta">
+                            <h4>Welcome</h4>
+                            <a href="signin.html" target="_blank" class="signin-button-link">Sign In / Register</a>
+                        </div>
+                    </div>
+
+                    <ul class="dropdown-links-list">
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">My Orders</a></li>
+                        <li><a href="#">Messages</a></li>
+                        <li><a href="#">Watchlist</a></li>
+                        <li><a href="#">Payments & Wallet</a></li>
+                        <li><a href="#">Selling</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Sign Out</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="action-item watchlist-dropdown-wrapper" id="watchlistWrapper">
+                <a href="#" class="watchlist-trigger-link" id="watchlistTrigger">
+                    <i data-lucide="heart"></i>
+                    <span class="watchlist-badge-count" id="watchlistBadge" style="display: none;">0</span> 
+                </a>
+
+                <div class="watchlist-dropdown-panel" id="watchlistPanel">
+                    <div class="watchlist-state-empty active" id="watchlistEmptyState">
+                        <div class="empty-state-icon">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <h3>Your watchlist is empty</h3>
+                        <p>Save items you're keeping an eye on here, and we'll track price changes or updates for you.</p>
+                        <a href="#" class="watchlist-empty-cta">Start shopping</a>
+                    </div>
+
+                    <div class="watchlist-state-populated" id="watchlistPopulatedState">
+                        <div class="watchlist-panel-header">
+                            <h3>Watchlist Items</h3>
+                            <a href="#" class="view-all-link">View all</a>
+                        </div>
+                        <ul class="watchlist-items-list" id="watchlistItemsList"></ul>
+                        <div class="watchlist-panel-footer">
+                            <a href="#" class="full-watchlist-btn">Go to detailed watchlist</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ps-messages-module">
+                <a href="#" class="action-item" style="position: relative;">
+                    <i data-lucide="message-square"></i>
+                    <span class="ps-alibaba-msg-card">
+                        <span class="ps-msg-card-header">
+                            <h3>Messages</h3>
+                        </span>
+                        <span class="ps-msg-card-body">
+                            <span class="ps-msg-center-graphic">
+                                <img src="Images/messicon.jpg" alt="Messages" class="ps-custom-msg-icon">
+                            </span>
+                            <span class="ps-msg-center-text">Go to messenger for more</span>
+                        </span>
+                        <span class="ps-msg-card-footer" onclick="window.location.href='messages.html';">View More</span>
+                    </span>
+                </a>
+            </div>
+
+            <a href="#" class="action-item" id="cart-icon">
+                <div class="cart-wrapper">
+                    <i data-lucide="shopping-cart"></i>
+                </div>
+                <div class="ps-cart-dropdown" id="headerCartDropdown">
+                    <div class="ps-cart-dropdown-header">
+                        <span>Shopping Cart</span>
+                    </div>
+                    <div class="ps-dropdown-empty-state">
+                        <div class="ps-empty-cart-icon">
+                            <img src="Images/Category icons/cartic.jpg" alt="Empty Cart" class="ps-3d-cart-img">
+                        </div>
+                        <p class="ps-empty-text">Your cart is empty</p>
+                        <a href="cart.html" class="ps-go-to-cart-btn">Go to cart</a>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </header>
+<div class="category-header-top">
+    <nav class="breadcrumbs">
+        <a href="#">PalmSokoni</a> &gt; <span class="current">Electronics</span>
+    </nav>
+    <h1 class="page-title">Electronics</h1>
+</div>
+
+<div class="category-page-container">
+    
+<aside class="category-sidebar">
+    <!-- Static Category Links (Does not scroll) -->
+    <div class="sidebar-section">
+        <h3>Shop by category</h3>
+        <ul class="sidebar-links">
+            <li><a href="#" class="active">Cameras & Photo</a></li>
+            <li><a href="#">Cell Phones & Accessories</a></li>
+            <li><a href="#">Computers/Tablets & Network</a></li>
+            <li><a href="#">Portable Audio & Headphones</a></li>
+            <li><a href="#">TV, Video & Home Audio</a></li>
+            <li><a href="#">Surveillance & Smart Home</a></li>
+        </ul>
+    </div>
+
+    <!-- Scrollable Filters Container -->
+    <div class="sidebar-scroll-container">
+        
+        <!-- Filter 1: Condition -->
+        <div class="sidebar-section filter-group">
+            <h3>Condition</h3>
+            <label class="checkbox-container">
+                <input type="checkbox"> New
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox"> Open Box
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox"> Used
+            </label>
+        </div>
+
+        <!-- Filter 2: Deals & Discounts -->
+        <div class="sidebar-section filter-group">
+            <h3>Deals & discounts</h3>
+            <label class="checkbox-container">
+                <input type="checkbox"> Sale
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox"> Free shipping
+            </label>
+        </div>
+
+        <!-- Filter 3: Brand -->
+        <div class="sidebar-section filter-group">
+            <h3>Brand</h3>
+            <label class="checkbox-container">
+                <input type="checkbox"> Sony
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox"> Apple
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox"> Samsung
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox"> HP
+            </label>
+        </div>
+
+    </div>
+</aside>
+
+    <main class="category-main-content">
+        <div class="results-control-bar">
+            <div class="left-controls">
+                <span class="results-count">1,412,744 results</span>
+            </div>
+            <div class="right-controls">
+                <label for="sort-select">Sort:</label>
+                <select id="sort-select" class="sort-dropdown">
+                    <option value="best">Best Match</option>
+                    <option value="lowest">Price + Shipping: lowest first</option>
+                    <option value="highest">Price + Shipping: highest first</option>
+                </select>
+            </div>
+        </div>
+
+<!-- Fresh grid container configured for 3 large cards per row -->
+<div class="category-large-grid">
+
+    <!-- Card 1 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="Images/Products/prod4.jpg" alt="Premium Wireless Headphones">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Premium Wireless Bluetooth Headphones Noise Cancelling</h3>
+            <p class="ebay-item-price">TSh 45,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.7</span>
+                <span class="ebay-sales-count">3,000+ sold</span>
+            </div>
+        </div>
+        <!-- Card Preview Slide-up Footer Container -->
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="images/Products/prod12.jpg" alt="Product Image">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Smart Fitness Watch with Heart Rate Monitor Waterproof</h3>
+            <p class="ebay-item-price">TSh 65,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.5</span>
+                <span class="ebay-sales-count">1,200+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="Images/Products/prod12.jpg" alt="Product Image">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Ergonomic Wired Gaming Mouse RGB Backlit 7200 DPI</h3>
+            <p class="ebay-item-price">TSh 25,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.8</span>
+                <span class="ebay-sales-count">950+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="Images/Products/prod4.jpg" alt="Wireless Over-Ear Headphones">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Wireless Over-Ear Noise Cancelling Hi-Fi Headphones</h3>
+            <p class="ebay-item-price">TSh 85,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.9</span>
+                <span class="ebay-sales-count">5,200+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="images/Products/prod12.jpg" alt="Leather Strap Analog Watch">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Minimalist Classic Leather Strap Analog Wrist Watch</h3>
+            <p class="ebay-item-price">TSh 35,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.6</span>
+                <span class="ebay-sales-count">840+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="Images/Products/prod4.jpg" alt="Sport Running Shoes">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Breathable Athletic Outdoor Cushioning Sneakers</h3>
+            <p class="ebay-item-price">TSh 55,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.4</span>
+                <span class="ebay-sales-count">1,500+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="images/Products/prod12.jpg" alt="Retro Sunglasses">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Polarized Unisex Retro Sunglasses UV400 Protection</h3>
+            <p class="ebay-item-price">TSh 15,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.7</span>
+                <span class="ebay-sales-count">2,100+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="Images/Products/prod4.jpg" alt="Deep Bass Audio Earbuds">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Pro Bass Stereo Audio Sweatproof Sport Earbuds</h3>
+            <p class="ebay-item-price">TSh 48,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.5</span>
+                <span class="ebay-sales-count">420+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="images/Products/prod12.jpg" alt="Mechanical Keyboard">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Mechanical Gaming Keyboard Backlit Custom Switches</h3>
+            <p class="ebay-item-price">TSh 75,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.8</span>
+                <span class="ebay-sales-count">1,150+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="Images/Products/prod4.jpg" alt="Slim Business Laptop">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Ultra-Slim 14-inch Business & Student Laptop Intel Core</h3>
+            <p class="ebay-item-price">TSh 950,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.6</span>
+                <span class="ebay-sales-count">250+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="images/Products/prod12.jpg" alt="Smart Fitness Tracker">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">IP68 Waterproof Smart Fitness Tracker Activity Band</h3>
+            <p class="ebay-item-price">TSh 30,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.3</span>
+                <span class="ebay-sales-count">3,400+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="Images/Products/prod4.jpg" alt="True Wireless Earbuds">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">True Wireless Stereo Earbuds Quick Charge Case</h3>
+            <p class="ebay-item-price">TSh 22,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.5</span>
+                <span class="ebay-sales-count">6,100+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 13 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="images/Products/prod12.jpg" alt="Lifestyle Sneakers">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Urban Casual Comfort Lifestyle Fashion Sneakers</h3>
+            <p class="ebay-item-price">TSh 49,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.6</span>
+                <span class="ebay-sales-count">850+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 14 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="Images/Products/prod4.jpg" alt="Gaming Controller">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Wireless Bluetooth Gaming Controller Joystick</h3>
+            <p class="ebay-item-price">TSh 40,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.7</span>
+                <span class="ebay-sales-count">1,400+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+    <!-- Card 15 -->
+    <div class="ebay-product-card">
+        <div class="market-img-box">
+            <button class="ps-watchlist-btn" aria-label="Add to watchlist">
+                <i class="far fa-heart"></i>
+            </button>
+            <img src="images/Products/prod12.jpg" alt="Large Mousepad">
+            <button class="ps-image-cart-btn" aria-label="Add to cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="ebay-product-details">
+            <h3 class="ebay-item-title">Anti-Slip Extra Large Gaming Mousepad Water Resistant</h3>
+            <p class="ebay-item-price">TSh 18,000</p>
+            <div class="ebay-rating-row">
+                <span class="ebay-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span>
+                <span class="ebay-rating-value">4.8</span>
+                <span class="ebay-sales-count">2,200+ sold</span>
+            </div>
+        </div>
+        <div class="card-preview-footer">
+            <span class="see-preview-btn">See preview</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="image-search-modal" id="imageSearchModal">
+    <div class="modal-content-card">
+        <button class="modal-close-btn" id="closeSearchModal">&times;</button>
+        <h3>Can't find the words? Search with an image</h3>
+        
+        <div class="upload-drop-zone" id="uploadDropZone">
+            <input type="file" id="imageFileInput" accept="image/*" hidden>
+            <div class="upload-zone-inside">
+                <div class="upload-icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                </div>
+                <p>Drag an image here or <span class="browse-link" id="browseFileLink">browse to a file</span></p>
+            </div>
+        </div>
+        
+        <div class="modal-divider">
+            <span>or</span>
+        </div>
+        
+        <div class="image-url-form">
+            <input type="text" id="imageUrlInput" placeholder="Paste an image link">
+            <button type="button" class="image-url-submit-btn" id="submitUrlBtn">Go</button>
+        </div>
+    </div>
+</div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

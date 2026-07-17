@@ -1,0 +1,378 @@
+/* 1. Header Typography Alignment System (Full Page Width) */
+.category-header-top {
+    max-width: 1400px;
+    margin: 40px auto 10px auto; /* Increased top margin from 20px to 40px for more gap below header */
+    padding: 0 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.breadcrumbs {
+    font-size: 13px;
+    color: #111111; /* Changed from gray to solid black */
+    margin-bottom: 16px; /* Increased from 8px to 16px for more gap above the page title */
+}
+.breadcrumbs a {
+    color: #111111; /* Changed link color from gray to solid black */
+    text-decoration: none;
+}
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.page-title {
+    font-size: 34px; /* Increased size as requested */
+    font-weight: 700;
+    margin: 0;
+    color: #111111;
+    letter-spacing: -0.5px;
+}
+
+/* 2. Content Layout Grid Frame */
+.category-page-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px 40px 20px;
+    gap: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   3. Left Column Sidebar Configurations (Updated to Match eBay)
+   ========================================================================== */
+.category-sidebar {
+    width: 230px; /* Kept exactly at your original 180px width */
+    flex-shrink: 0;
+    margin-top: 15px;
+    
+    /* Scrollbar Core Configuration */
+    max-height: 450px;          /* Limits sidebar height so the scrollbar triggers */
+    overflow-y: auto;           /* Turns on vertical scrolling */
+    overflow-x: hidden;         /* Prevents horizontal stretching or shifting */
+    margin-right: -50px;
+    padding-right: 20px;         /* Keeps sidebar items from touching the scrollbar */
+    box-sizing: border-box;     /* Ensures padding doesn't widen the 180px container */
+}
+
+/* ==========================================================================
+   AliExpress-Style Sleek Scrollbar (Webkit)
+   ========================================================================== */
+
+/* 1. Sets the width of the scrollbar */
+.category-sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* 2. Keeps the track background invisible */
+.category-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* 3. Rounded grey pill handle (AliExpress match) */
+.category-sidebar::-webkit-scrollbar-thumb {
+    background: #d3d3d3; 
+    border-radius: 10px;
+}
+
+/* 4. Subtle hover effect */
+.category-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+.sidebar-section {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 20px;
+}
+.sidebar-section h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111111; /* Strong opaque black */
+    margin-bottom: 12px;
+}
+.sidebar-links {
+    list-style: none;
+    padding: 0px !important;
+}
+.sidebar-links li {
+    margin-bottom: 8px;
+}
+.sidebar-links a {
+    text-decoration: none;
+    padding-left: 0px !important; /* Strips left spacing from clickable text */
+    margin-left: 0px !important;  /* Strips left margin from clickable text */
+    color: #111111; /* Changed from gray to strong opaque black */
+    font-size: 14px;
+    display: inline-block;
+}
+/* Updated hover to explicitly apply black coloring and standard underline decoration */
+.sidebar-links a:hover {
+    color: #111111;
+    text-decoration: underline;
+}
+/* Clean treatment for active selection */
+.sidebar-links a.active {
+    color: #111111;
+    font-weight: 700;
+}
+.checkbox-container {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #111111; /* Solid black for inputs */
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   4. Right Main Content
+   ========================================================================== */
+.category-main-content {
+    flex-grow: 1;
+}
+.results-control-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+.results-count {
+    font-size: 14px;
+    color: #111111; /* Changed to match solid black styling */
+}
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+.sort-dropdown {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Section 5: Main Layout Grid & Cards (Sharp Edges & Zero Gap Alignment)
+   ========================================================================== */
+
+/* Main layout grid containing the elements */
+.category-large-grid {
+    display: grid;
+    /* Forces exactly 3 large, wide columns */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px; /* Changed from 20px to 0px to completely remove the gaps between cards */
+    padding-bottom: 60px;
+    max-width: 930px;          /* Restricts product cards to a tighter, compact width */
+    margin-right: auto;
+    margin-left: 40px !important;        /* Pulls the cards to the left, dumping all remaining empty space to the far right */
+    align-items: start !important;
+}
+
+/* Base card structure matching your template mechanics */
+.category-large-grid .ebay-product-card {
+    position: relative;
+    background: #fff;
+    border: none !important; /* Removed border to prevent double border effect */
+    border-radius: 0px; /* Changed from 8px to 0px for perfectly sharp edges */
+    overflow: visible; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    transition: box-shadow 0.2s ease;
+    width: 100%;
+    margin-left: -1px; /* Overlaps borders cleanly so double borders don't form between joined cards */
+    height: auto !important;
+}
+
+/* Card Hover Elevation Style */
+.category-large-grid .ebay-product-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Upscaled Image Box Container */
+.category-large-grid .market-img-box {
+    position: relative;
+    background-color: #f7f7f7;
+    height: 300px !important; /* Increased from 150px to 200px for a more prominent image display */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px !important; /* Forces padding to 0 to prevent internal text/image gap */
+    border-radius: 0px; /* Changed from 8px 8px 0 0 to 0px to keep image header sharp */
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden; /* Clips any image scaling overflow cleanly */
+}
+
+.category-large-grid .market-img-box img {
+    /* CHANGED FROM max-width/max-height to absolute width/height to force edge-to-edge covering */
+    width: 95% !important;
+    height: 95% !important;
+    object-fit: cover !important;
+    border-radius: 0px !important; 
+}
+
+/* Watchlist icon alignment */
+.category-large-grid .ps-watchlist-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    color: #555;
+    z-index: 2;
+}
+
+/* Quick Add to Cart button alignment */
+.category-large-grid .ps-image-cart-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    color: #555;
+    z-index: 2;
+}
+
+/* Content Details Fields formatting */
+.category-large-grid .ebay-product-details {
+    padding: 8px 12px 12px 12px !important; /* Adds standard internal padding on the sides and bottom, pulls text up slightly */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0 !important;
+    height: auto !important;
+}
+
+.category-large-grid .ebay-item-title {
+    font-size: 14px !important; /* Reduced from 18px to a clean, standard 14px to prevent vertical text pushing */
+    font-weight: 500;
+    line-height: 1.3;
+    color: #333;
+    margin: 0 0 4px 0 !important;
+    height: 18px !important; /* Tuned height down to match single-line text size */
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.category-large-grid .ebay-item-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff6a00;
+    margin: 2px 0 2px 0 !important;
+}
+
+/* Star Rating Section Alignment formatting */
+.category-large-grid .ebay-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+
+.category-large-grid .ebay-stars {
+    color: #ffc107; 
+}
+
+.category-large-grid .ebay-rating-value {
+    font-weight: 600;
+    color: #111;
+}
+
+/* Update this block */
+.category-large-grid .ebay-sales-count {
+    color: #777;
+    /* Changed from flex to inline so the pseudo-element displays naturally with the text */
+    display: inline !important; 
+}
+
+/* Update this block */
+.category-large-grid .ebay-sales-count::before {
+    content: "|" !important;         /* Force insert the bullet point dot */
+    display: inline-block !important; /* Ensure the browser renders it as a physical element */
+    font-size: 2px !important;       /* Shrinks the height of the line */
+    margin-right: 2px !important;    /* Space between dot and sales count text */
+    margin-left: 1px !important;     /* Space between dot and rating number */
+    color: #777 !important;          /* Match the color of your sales text */
+    font-size: 14px !important;
+}
+/* ==========================================================================
+   Clean 3-Column Category Layout (No Preview Button)
+   ========================================================================== */
+
+/* 1. Ensure the cards have sharp corners and standard positioning */
+.category-large-grid .ebay-product-card,
+.infinite-products-grid .ebay-product-card,
+.trendingTrack-product-grid .ebay-product-card {
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 0px !important; /* Keep all card corners perfectly sharp */
+    background: #ffffff !important;
+    transition: box-shadow 0.2s ease !important;
+}
+
+/* 2. Elevate the card with a clean shadow on hover without expanding it */
+.ebay-product-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* 3. Completely hide the preview button container in this section */
+.category-large-grid .ebay-product-card .card-preview-footer {
+    display: none !important;
+}
+/* ==========================================================================
+   AliExpress-Style Scrollbar Arrows (Top & Bottom Buttons)
+   ========================================================================== */
+
+/* 1. Enable and size the scrollbar buttons */
+.category-sidebar::-webkit-scrollbar-button:single-button {
+    display: block !important;
+    height: 12px;
+    background-size: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 2. Top Arrow (Decrement) */
+.category-sidebar::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23999999'><polygon points='50,20 100,80 0,80'/></svg>");
+}
+
+/* 3. Bottom Arrow (Increment) */
+.category-sidebar::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23999999'><polygon points='50,80 100,20 0,20'/></svg>");
+}
+
+/* 4. Arrow Hover Effect */
+.category-sidebar::-webkit-scrollbar-button:single-button:hover {
+    filter: brightness(0.7);
+}

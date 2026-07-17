@@ -1,125 +1,3635 @@
-/* ══ PALMSOKONI BRAND COLORS ══ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 :root {
-  --orange: #FF6A00;
-  --orange-dark: #e05a00;
-  --white: #ffffff;
-  --light-gray: #f4f4f4;
-  --dark-text: #333333;
-  --shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    --orange: #FF6A00;
+    --dark-blue: #1a1a2e;
+    --white: #ffffff;
+    --gray-text: #757575;
+    --border-light: #e5e5e5;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--light-gray);
-  color: var(--dark-text);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
+}
+html.dark-mode,
+body.dark-mode {
+    background-color: #121212 !important; /* Premium deep charcoal background */
+    color: #f8fafc !important;            /* High-legibility off-white text */
+}
+/* TOP BAR */
+.top-bar {
+    background: #f8f8f8;
+    padding: 6px 4%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    border-bottom: 1px solid var(--border-light);
+    align-items: center; /* Ensures everything aligns vertically center */
 }
 
-/* ══ HEADER ══ */
-.header {
-  background-color: var(--orange);
-  padding: 15px 5%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Align and space out your sign-in, language, and help links */
+.top-left { 
+    display: flex; 
+    gap: 15px; 
+    align-items: center; 
+}
+
+.top-left a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.top-left a:hover {
+    text-decoration: underline;
+}
+
+/* New styling for the welcome message & register links */
+.top-bar-welcome {
+    color: #555555;
+    font-size: 12px;
+}
+
+.top-auth-link {
+    color: #0052cc !important; /* Marketplace blue link highlight */
+    font-weight: 500;
+}
+
+.top-bar-divider {
+    color: #cccccc;
+    font-weight: 300;
+}
+
+.top-right { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+}
+
+/* MAIN HEADER */
+.header-main {
+    background: var(--orange);
+    padding: 10px 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: -webkit-sticky;  /* Engine fallback support for legacy Safari builds */
+    position: sticky;          /* Locks the header bar to the top edge of the browser viewport */
+    top: 0;                    /* Anchors it right at the absolute top boundary */
+    z-index: 999990 !important;/* Keeps the entire row and dropdown safely above hero banners/sliders */
+}
+
+.header-left-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--white);
-  text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.8px;
 }
 
+/* Shop by Category */
+.shop-by-cat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.cat-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.cat-text span {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.cat-arrow { width: 14px !important; height: 14px !important; }
+/* The Dropdown Menu Window Panel (Updated to Fixed Position Overlay) */
+/* ==========================================================================
+   UPDATED DROPDOWN ALIGNMENT: ALIGNS UNDER TRIGGER THROUGH SEARCH BAR
+   ========================================================================== */
+.ebay-mega-dropdown {
+    position: absolute;
+    
+    /* Alignment Coordinates: Drops perfectly under the orange header line */
+    top: 42px;              
+    left: 165px;            /* Aligns flawlessly below the start of "Shop by category" */
+    
+    /* Dimensions: Captures the exact horizontal stretch under the search bar */
+    width: 870px;            /* Uses dynamic viewport percentage to span precisely across the bar */
+    min-width: 870px;       /* Keeps it broad on smaller screens to keep your 3 columns elegant */
+    height: auto;
+    min-height: 460px !important;      /* Restricts total height while adding a modern clean scroll track */
+    overflow-y: visible;       
+    
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+    padding: 32px 36px 40px 36px;     /* Roomy internal padding to let sections breath like eBay */
+    z-index: 999999 !important; /* Renders layout over slideshow image components safely */
+    
+    /* Animation settings */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.12s ease, transform 0.12s ease, visibility 0.12s;
+}
+
+/* Active Visible Class state called via Javascript toggle */
+.ebay-mega-dropdown.show-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 3-Column Parallel Content Matrix Layout */
+/* Three Column Structural Parallel Grid Alignment */
+.mega-dropdown-inner {
+    display: grid;
+    grid-template-columns: 240px 250px 240px !important;
+    column-gap: 80px;            /* Balances spacing inside your custom layout boundaries */
+    row-gap: 0;
+    justify-content: start !important;
+}
+
+.mega-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Category Header Typography (eBay Bold Standards) */
+.main-cat-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    margin: 0 0 6px 0 !important; /* Tiny bottom gap before list blocks begin */
+    padding: 6px 12px !important; /* Left alignment matching the sub-link padding */
+    letter-spacing: -0.2px !important;
+}
+
+/* Section Separator: Adds a subtle line above lower categories in a column */
+.main-cat-title.has-divider {
+    margin-top: 40px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid #f0f0f0 !important;
+}
+
+.main-cat-title a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.main-cat-title a:hover {
+    text-decoration: underline;
+}
+
+/* Category Container Lists */
+.sub-cat-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important; /* Creates a clean layout block break */
+}
+
+/* Replicating the Pill-Shaped Hover Effects */
+.sub-cat-list li {
+    margin-bottom: 6px !important; /* Minimizes raw text margin gaps to let links handle the hit-box */
+}
+
+.sub-cat-list li a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 16px !important;  /* Matches eBay's readable body font size exactly */
+    font-weight: 400 !important;
+    color: #555555 !important;    /* Clean, soft off-black charcoal typography tint */
+    text-decoration: none !important;
+    
+    /* Structural Mechanics: Transforms single strings into fully block hover rows */
+    display: block !important;
+    white-space: nowrap !important;
+    padding: 7px 14px !important; /* Creates the spacious vertical padding seen on eBay */
+    border-radius: 6px !important;
+    line-height: 1.3 !important; /* Smoothly rounds the corners of the grey pill background */
+    transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+/* The Interactive Hover State Matrix */
+.sub-cat-list li a:hover {
+    background-color: #f7f7f7 !important; /* The precise soft light-grey highlight pill background */
+    color: #000000 !important;            /* Darkens the text color to pure black on active cursor hover */
+    text-decoration: none !important;     /* Disables standard underline decorations */
+}
+
+/* Minimalist scrollbar style to stay clean */
+.ebay-mega-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+.ebay-mega-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+.ebay-mega-dropdown::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+    border-radius: 10px;
+}
+
+/* SEARCH BAR (40px Height) */
 .search-container {
-  flex-grow: 0.6;
-  display: flex;
+    background: white;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 2px 2px 2px 20px;
+    flex: 0 1 700px;
+    margin-left: 20px;
 }
 
 .search-container input {
-  width: 100%;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px 0 0 4px;
-  outline: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    background: transparent;
 }
 
-.search-btn {
-  background: var(--dark-text);
-  color: white;
-  border: none;
-  padding: 0 20px;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
+.search-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.header-icons {
-  display: flex;
-  gap: 20px;
-  color: var(--white);
-  font-size: 1.2rem;
+.camera-btn {
+    background: none;
+    border: none;
+    color: #000000 !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px; /* Gives the click target a slight comfortable buffer */
+    transition: transform 0.1s ease;
 }
 
-/* ══ HERO SECTION ══ */
-.hero {
-  background: white;
-  padding: 40px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.camera-btn svg { 
+    width: 20px; 
+    height: 25px;
+    stroke: #000000 !important;        /* Guarantees the outlines are pure black */
+    stroke-width: 2.2px !important;     /* Increases outline border thickness to look bold */
+    fill: none !important;
+}
+/* Subtle Hover Effect */
+.camera-btn:hover {
+    transform: scale(1.08); /* Gives a tiny crisp pop when hovering over it */
 }
 
-.hero-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.search-icon-box {
+    background: #000;
+    height: 36px;
+    width: 50px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
 }
 
-.hero-text span {
-  color: var(--orange);
+.search-icon-box svg { width: 18px; height: 18px; }
+
+/* ICONS */
+/* ==========================================================================
+   HEADER ICONS LAYOUT & FIXED DROPDOWN COMPONENT
+   ========================================================================== */
+.header-actions {
+    display: flex;
+    align-items: center; /* Ensures perfect baseline vertical alignment */
+    gap: 38px;
+    margin-left: 20px;
 }
 
-/* ══ PRODUCT GRID ══ */
+/* Wrapper to isolate dropdown flow from pushing sibling header elements */
+.action-item-dropdown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-item {
+    color: var(--white);
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-item svg { 
+    width: 26px; 
+    height: 26px; 
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: var(--dark-blue);
+    color: white;
+    font-size: 10px;
+    padding: 1px 5px;
+    border-radius: 10px;
+}
+
+/* ==========================================================================
+   ALIBABA PROFILE DROPDOWN STYLING (PERFECTLY CENTERED & GAP-BRIDGED)
+   ========================================================================== */
+.account-dropdown-card {
+    position: absolute !important;
+    top: 100% !important;
+    
+    /* 🎯 HORIZONTAL CENTERING ALIGNMENT */
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(15px) !important; /* Starts lower for a smooth popup animation */
+    
+    width: 270px !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 16px 0 12px 0 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid #e8e8e8 !important;
+    z-index: 999999 !important;
+    
+    /* Default visibility hidden states */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+/* 🧱 THE HOVER BRIDGE: Fills the dead space gap so the menu stays open as you move your cursor down */
+.account-dropdown-card::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -12px !important; /* Spans the vertical gap space perfectly */
+    left: 0 !important;
+    width: 100% !important;
+    height: 12px !important;
+    background: transparent !important; /* Invisible to user */
+}
+
+/* 💻 MOUSE CONTROLS: Smoothly displays closer to the icon on hover */
+@media (hover: hover) {
+    .action-item-dropdown-container:hover .account-dropdown-card {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        /* 🎯 Centers card horizontally and pulls it up closer vertically */
+        transform: translateX(-50%) translateY(4px) !important; 
+    }
+}
+
+/* 📱 MOBILE TOUCH PATH FALLBACK */
+.account-dropdown-card.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) translateY(4px) !important;
+}
+
+/* Dropdown Welcome Identity Layout */
+.dropdown-user-profile-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 4px 20px 16px 20px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.user-avatar-circle {
+    width: 52px !important;
+    height: 52px !important;
+    background: #f5f5f7 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #555555 !important;
+    border: 1px solid #e3e3e5 !important;
+    flex-shrink: 0 !important;
+}
+
+.user-avatar-circle svg {
+    width: 26px !important;
+    height: 26px !important;
+    color: #555555 !important;
+}
+
+.user-greeting-meta {
+    text-align: left !important;
+}
+
+.user-greeting-meta h4 {
+    margin: 0 0 2px 0 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #222222 !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+}
+
+.signin-button-link {
+    font-size: 12px !important;
+    color: #ff5000 !important; /* PalmSokoni Orange Accent Theme */
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+}
+
+.signin-button-link:hover {
+    text-decoration: underline !important;
+}
+
+/* Dropdown Options List Elements */
+.dropdown-links-list {
+    list-style: none !important;
+    padding: 6px 0 0 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.dropdown-links-list li {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.dropdown-links-list li a {
+    display: block !important;
+    padding: 11px 24px !important;
+    color: #333333 !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+    text-align: left !important;
+    transition: background 0.15s ease, color 0.15s ease !important;
+}
+
+.dropdown-links-list li a:hover {
+    background: #f5f5f5 !important;
+    color: #111111 !important;
+}
+
+/* EBAY STYLE NAV ROW */
+.nav-categories {
+    background: var(--white);
+    border-bottom: 1px solid var(--border-light);
+    width: 100%;
+
+    /* ==========================================================================
+       STACKED STICKY POSITIONING ENGINE
+       ========================================================================== */
+    position: -webkit-sticky !important; /* Legacy Safari browser engine support */
+    position: sticky !important;         /* Enables independent sticky floating */
+    
+    /* CRITICAL: Instead of 0, this offsets it so it sticks perfectly underneath 
+       your orange search header without hiding behind it */
+    top: 62px !important;                
+    
+    /* Layer hierarchy order: Kept directly underneath your main header layer (999990) */
+    z-index: 999980 !important;          
+}
+
+.nav-container {
+    /* Adjust this padding-left to line up 'Electronics' with your 'Shop by' text */
+    padding: 12px 4% 12px 185px; 
+    display: flex;
+    gap: 32px; /* Increased gap to match eBay's spacious look */
+    align-items: center;
+}
+
+.nav-categories a {
+    text-decoration: none;
+    color: #555; /* eBay's neutral gray */
+    font-size: 13px;
+    font-weight: 400; /* Regular weight for a cleaner look */
+    white-space: nowrap;
+    transition: color 0.1s;
+}
+
+.nav-categories a:hover {
+    color: #000; /* Darker on hover */
+    text-decoration: underline;
+}
+/* HERO SECTION */
+.hero-section {
+    padding: 20px 4%;
+    background-color: #f0f2f5;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 320px; /* Standard eBay Hero height */
+    overflow: hidden;
+    background: #fff;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* EBAY STYLE CONTROLS BOTTOM RIGHT */
+.slider-controls {
+    position: absolute;
+    bottom: 15px;
+    right: 25px; /* Pushed to the right as per image */
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.dots-group {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #333;
+}
+
+.playback-group {
+    display: flex;
+    gap: 10px;
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+}
+
+.playback-group button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.playback-group svg { width: 18px; height: 18px; }
+/* HERO SECTION - EDGE TO EDGE */
+/* HERO SECTION - EDGE TO EDGE */
+/* HERO SECTION - EDGE TO EDGE */
+/* HERO SECTION */
+.hero-section {
+    width: 100%;
+    margin-top: 30px;
+    padding: 0;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 380px; /* Increased height as per your marked area */
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* 1. SMALL CENTERED DOTS (eBay Style) */
+.slider-dots-container {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 6px; /* Smaller dots */
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: #333;
+}
+
+/* 2. FLOATING CONTROLS (No box, individually spaced) */
+.slider-playback-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 4%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between the individual icons */
+}
+
+.control-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.control-icon:hover {
+    transform: scale(1.1);
+}
+
+.control-icon svg {
+    width: 20px; /* Standard eBay icon size */
+    height: 20px;
+}
+/* --- CLEAN HERO SECTION START --- */
+/* --- REFINED HERO SECTION --- */
+.hero-section {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 380px; 
+    overflow: hidden;
+}
+
+/* EBAY TOP-LEFT ALIGNMENT - REFINED */
+.hero-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    max-width: 1400px; /* Increased to allow image to reach further right */
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    padding: 0; /* Removed padding to allow image to hit edges */
+    box-sizing: border-box;
+}
+
+.hero-text-content {
+    flex: 0 0 45%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 40px;   /* Moves text down from top */
+    padding-left: 60px;  /* Moves text in from left */
+}
+
+/* TYPOGRAPHY - INCREASED BY 4PX */
+.hero-text-content h1 {
+    font-family: "Market Sans", Arial, sans-serif; 
+    font-size: 40px; /* Increased from 32px */
+    font-weight: 700;
+    line-height: 1.1;
+    color: #111;
+    margin-bottom: 12px;
+}
+
+.hero-text-content p {
+    font-family: "Market Sans", Arial, sans-serif;
+    font-size: 17px; /* Increased slightly for better balance */
+    line-height: 1.4;
+    color: #111;
+    margin-bottom: 20px;
+    max-width: 350px;
+}
+
+/* IMAGE AREA - TOP TO BOTTOM FIT */
+.hero-image-container {
+    flex: 0 0 50%;
+    height: 100%; /* Forces container to full slider height */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image-container img {
+    height: 100%;      /* Fits top to bottom exactly */
+    width: auto;       /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures no white space at top/bottom */
+    object-position: center;
+}
+
+.shop-now-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #111;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+/* --- UNIVERSAL WHITE TEXT STYLE --- */
+/* This will work for Slide 2 and any future slides you create */
+
+.hero-text-content.white-text h1 {
+    color: #ffffff !important;
+    font-size: 42px;
+    font-family: "Market Sans", Arial, sans-serif;
+    font-weight: 700;
+}
+
+.hero-text-content.white-text p {
+    color: #ffffff !important;
+    font-size: 17px;
+    font-family: "Market Sans", Arial, sans-serif;
+}
+/* --- LINE 457 START: THE SEAMLESS HD NIKE LAYOUT --- */
+.nike-slide-final {
+    position: relative;
+    background-color: #e53238; /* Matches the shoe red perfectly */
+    overflow: hidden;
+    height: 100%;
+}
+
+.nike-bg-img {
+    position: absolute;
+    top: 50%;
+    left: 55%; /* Nudges the shoe slightly right to clear the text */
+    transform: translate(-50%, -50%) scale(1.4) rotate(-12deg);
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    z-index: 1;
+    
+    /* SHARPNESS FIXES */
+    image-rendering: -webkit-optimize-contrast;
+    
+    /* SEAMLESS BLENDING */
+    /* This removes the "box" edges and merges the shoe into the CSS background */
+    mix-blend-mode: multiply; 
+}
+
+.nike-slide-final .hero-content-wrapper {
+    position: relative;
+    z-index: 10; /* Ensures text stays in front of the shoe */
+    pointer-events: none; /* Let clicks pass through to the slide */
+}
+
+.nike-slide-final .hero-text-content {
+    pointer-events: auto; /* Makes sure the button is still clickable */
+}
+/* SLIDE 4 SPECIFIC: MOVE IMAGE TO THE LEFT */
+.hero-image-container.last-slide-nudge {
+    display: flex;
+    justify-content: flex-start; /* Aligns content toward the left of its container */
+    padding-left: 0;             /* Removes standard padding */
+    margin-left: -50px;          /* Nudges the image closer to the text */
+}
+
+.hero-image-container.last-slide-nudge img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    /* Optional: A very soft shadow to match the warm vibe */
+    filter: drop-shadow(-10px 10px 20px rgba(0,0,0,0.05));
+}
+
+/* 1. SECTION UTILS */
 .container {
-  padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.section-header-row {
+    display: flex;
+    justify-content: space-between; /* Pushes Title to left, See All to far right */
+    align-items: flex-end;          /* Aligns their baselines cleanly */
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5; /* Clean dividing line */
+}
+/* ==========================================================================
+   EBAY-STYLE HERO BOTTOM-RIGHT CONTROLS DOCK
+   ========================================================================== */
+
+/* The control cluster container anchored to the bottom-right corner */
+.slider-container .hero-controls-dock {
+    position: absolute !important;
+    bottom: 16px !important;
+    right: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important; /* Perfect tight spacing between buttons */
+    z-index: 100 !important;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+/* Base style for all 3 matching buttons */
+.slider-container .hero-dock-btn {
+    /* Compact eBay Dimensions */
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    
+    /* Uniform White Backgrounds for all elements */
+    background-color: #ffffff !important;
+    border: 1px solid #d2d2d7 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+    
+    /* Perfect Icon Centering */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Text/Icon Adjustments */
+    color: #1d1d1f !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    outline: none !important;
 }
 
-.card {
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s;
+/* Ensure lucide icons scale appropriately inside smaller containers */
+.slider-container .hero-dock-btn svg,
+.slider-container .hero-dock-btn i {
+    width: 14px !important;
+    height: 14px !important;
+    color: #1d1d1f !important;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+/* Interactive Hover state for all buttons */
+.slider-container .hero-dock-btn:hover {
+    background-color: #f5f5f7 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+    transform: scale(1.05) !important;
 }
 
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 5px;
+.slider-container .hero-dock-btn:active {
+    transform: scale(0.95) !important;
+}
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0;
+    padding: 0;
+}
+.see-all-link {
+    font-size: 0.95rem;
+    color: #0066cc;                /* Clean marketplace interactive blue */
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
 }
 
-.price {
-  color: var(--orange);
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin: 10px 0;
+.see-all-link:hover {
+    text-decoration: underline;    /* Visual feedback when hovered */
+}
+
+/* 2. RECENTLY VIEWED & MAIN GRID (Force 5 Columns) */ 
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Exactly 5 per row */
+    gap: 15px;
+}
+
+/* 3. PRODUCT CARDS */
+.product-card, .mini-card {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.product-img-container, .mini-img-box {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Makes every box a perfect square */
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10x;
+}
+
+.product-img-container img, .mini-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* 4. TEXT & PRICING */
+.product-name {
+    font-size: 0.9rem;
+    color: #333;
+    height: 2.4em;
+    overflow: hidden;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.product-price, .mini-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e53238; /* Professional marketplace red */
+    margin-bottom: 5px;
+}
+
+.seller-badge {
+    font-size: 0.7rem;
+    color: #007bff;
+    background: #eef7ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+/* 5. CATEGORY CIRCLES */
+.circle-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.cat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.circle {
+    width: 180px;
+    height: 180px;
+    background: #f8f8f8;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    transition: border-color 0.3s;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+}
+
+.circle img {
+    width: 100% !important;        /* Leaves a nice cushion of whitespace around the icon */
+    height: 100% !important;
+    object-fit: contain !important; /* Prevents icons from stretching or squishing */
+}
+
+.cat-item:hover .circle {
+    border-color: #e53238;
+}
+
+.cat-item span {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* 6. FOOTER (As per your Screenshot) */
+.main-footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 60px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col a { color: #999; text-decoration: none; font-size: 0.9rem; }
+.footer-col a:hover { color: #fff; }
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    color: #555;
+    font-size: 0.8rem;
+}
+
+/* 7. RESPONSIVE FIX (Mobile) */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .circle-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* ======================================================
+   STEP 6: CALIBRATED ALIBABA HEIGHT & PALMSOKONI WIDTH
+   ====================================================== */
+
+/* Forces exactly 5 clean columns across the screen container */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 perfect equal columns */
+    gap: 8px;                             /* Space between cards */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* The Main Product Card Structure */
+.ebay-product-card {
+    background: #ffffff;
+    width: 100%;
+    border: 1px solid #e8e8e8;  
+    border-radius: 8px 8px 8px 8px;        
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    /* 1. FORCE BOX BOTTOM TO TERMINATE AROUND INNER ELEMENTS */
+    height: max-content !important;    /* Wraps strictly to content layout limits */
+    min-height: 0 !important;          /* Destroys old 390px rules completely */
+    align-self: flex-start !important; /* Prevents parent row stretching */
+    
+    /* 2. THE CHOSEN SMALL GAP BENEATH PRICE */
+    padding-bottom: 8px !important;    /* Tight, clean space before the border line */
+}
+
+.ebay-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 10px rgba(0,0,0,0.06);
+}
+
+/* ======================================================
+   3. Unified Gray Image Box Spec (TRUE ALIBABA SQUARE)
+   ====================================================== */
+.market-img-box {
+    width: 100% !important;
+    
+    /* 1. THE ALIBABA SECRET: Forces the box to be a perfect square regardless of screen size */
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;      
+    background-color: #f5f5f5 !important; 
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    
+    /* 2. THE STRICT 8px GAP: Guarantees exactly 8px of grey space above, below, and on the sides */
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    border-radius: 8px 8px 0px 0px!important;
+    border-bottom: 1px solid #eaeaea !important;
+}
+
+/* CORRECTED symmetrical code */
+.market-img-box img {
+    /* Set both to 100% so the inner boundaries are perfectly square */
+    width: 100% !important;         
+    height: 100% !important;        
+    
+    /* Keeps original true image proportions without cutting anything off */
+    object-fit: contain !important;  
+    
+    /* Beautifully rounds out the corners of your product photo assets */
+    border-radius: 8px !important;   
+    
+    mix-blend-mode: multiply !important;
+}
+
+.ebay-product-details {
+    display: flex !important;
+    flex-direction: column !important;
+    
+    /* 3. PREVENT FILLING OF EMPTY CARD SPACE */
+    flex: none !important;            /* Tells layout container NOT to expand vertically */
+    height: auto !important;
+    padding-bottom: 0 !important;     /* Discharges layout padding leakage */
+}
+
+.ebay-item-price {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important; !important;
+    font-size: 1.15rem !important;
+    white-space: nowrap !important;      
+    font-weight: 700 !important;        /* Thick bold setting */
+    color: #ff6600 !important;          /* PALMSOKONI ORANGE: Matches your marked reference image color */
+    margin: 0 0 0 10px !important;      
+    line-height: 1.1 !important;
+    letter-spacing: -0.5px !important; 
+}
+.ebay-item-title {
+    font-family: 'Inter', 'Roboto', sans-serif !important;
+    font-size: 0.85rem !important;      /* Perfect regular size matching Alibaba's layout */
+    color: #333333 !important;          /* Crisp contrast color */
+    font-weight: 400 !important;        /* Smooth, regular weight (Strictly NOT bold) */
+    line-height: 1.35 !important;        /* Clean vertical line spacing */
+    
+    /* STRIKT 3-LINE LOCK: Forces every box to reserve space for exactly 3 lines */
+    height: 2.7em !important;           /* 1.4 line-height x 3 lines = 4.2em tall */
+    overflow: hidden !important;
+    
+    /* Native browser text-clamping engine */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;   
+    -webkit-box-orient: vertical !important;
+    text-overflow: ellipsis !important; /* Adds '...' if the text exceeds 3 lines */
+    
+    margin: 0 0 10px 10px !important;      /* THE SPACE: Creates the explicit gap before the price */
+}
+/* ==========================================================================
+   UPDATED: HIGH-FIDELITY ALIEXPRESS RATING COMPONENT MATRIX
+   ========================================================================== */
+
+.aliexpress-rating-row {
+    display: flex !important;
+    align-items: center !important;
+    /* Aligns the element neatly underneath your item titles */
+    margin: 6px 0 4px 12px !important; 
+    line-height: 1 !important;
+    user-select: none !important;
+}
+
+/* New 5-Star Layer Architecture */
+.aliexpress-star-bar {
+    position: relative !important;
+    display: inline-block !important;
+    font-family: Arial, sans-serif !important; /* Forces stars to stay sharp across platforms */
+    font-size: 16px !important; /* Scaled down to match compact AliExpress screenshot metrics */
+    letter-spacing: -0.5px !important; /* Packs stars tight together */
+    white-space: nowrap !important;
+    line-height: 1 !important;
+}
+
+/* Light gray track for empty stars */
+.stars-base {
+    color: #e2e2e2 !important;
+}
+
+/* Deep solid black track for filling the score */
+.stars-fill {
+    color: #000000 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important; /* Clips empty space safely for fractional ratings */
+}
+
+/* Numerical text rendering adjustments */
+.rating-value {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+    font-size: 14px !important; /* Matches micro-typographic layouts */
+    font-weight: 700 !important;
+    color: #000000 !important;
+    margin-left: 4px !important; /* Small gap between the 5th star and the numbers */
+    line-height: 1 !important;
+}
+
+/* Sales volume rendering adjustments */
+.sales-volume-count {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: #757575 !important; /* Clean neutral grey tone */
+    
+    /* Adds the clean dividing line profile */
+    border-left: 1px solid #d2d2d7 !important; 
+    padding-left: 6px !important;       
+    margin-left: 6px !important;        
+    line-height: 1 !important;          
+    display: inline-block !important;
+}
+/* ======================================================
+   ALIEXPRESS RECTANGLE EDGE-TO-EDGE "SEE PREVIEW" BUTTON
+   ====================================================== */
+/* ==========================================================================
+   ALIEXPRESS HOVER POP-OUT (TRENDING NOW & MORE TO LOVE) WITH CLEAN CORNERS
+   ========================================================================== */
+
+/* 1. Target the cards in both sections to allow elements to float out freely */
+.main-market .ebay-product-card,
+.more-to-love-section .ebay-product-card {
+    position: relative !important;
+    overflow: visible !important;  /* Allows the preview footer to drop below the card container boundary */
+    background: #ffffff !important;
+    
+    /* MODIFIED: Top corners rounded, bottom corners sharp to match the button seamlessly */
+    border-radius: 8px 8px 0 0 !important; 
+    
+    transition: box-shadow 0.2s ease-in-out, z-index 0.2s ease-in-out !important;
+    z-index: 1 !important;
+}
+
+/* 2. When hovering either card type, lift it up with a smooth floating drop shadow */
+.main-market .ebay-product-card:hover,
+.more-to-love-section .ebay-product-card:hover {
+    z-index: 10 !important;        /* Keeps the active card floating strictly on top of lower grid rows */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 3. Position the preview footer track completely outside the bottom boundary */
+.card-preview-footer {
+    position: absolute !important;
+    top: 100% !important;          /* Anchors it flush with the bottom border line of the product card */
+    left: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    background: #ffffff !important; /* Seamlessly matches card background */
+    
+    /* MODIFIED: Rounds out the very bottom edges of the new extended card panel */
+    border-radius: 0 0 8px 8px !important; 
+    
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important; /* Flows drop shadow down around the button expansion */
+    z-index: 11 !important;
+    
+    /* Animation hidden default parameters */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-5px) !important;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out, visibility 0.2s ease-out !important;
+}
+
+/* 4. Trigger state: Drops DOWNWARDS cleanly into view when either section card is hovered */
+.main-market .ebay-product-card:hover .card-preview-footer,
+.more-to-love-section .ebay-product-card:hover .card-preview-footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* 5. Custom Button Layout Logic */
+.see-preview-btn {
+    display: block !important;
+    text-align: center !important;
+    background-color: #111111 !important; 
+    color: #ffffff !important;
+    font-size: 0.80rem !important;
+    font-weight: 600 !important;
+    padding: 12px 0 !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    border: none !important;
+    
+    /* MODIFIED: Button bottom matches the container track curvature perfectly */
+    border-radius: 0 0 0px 8px !important;
+    
+    transition: background-color 0.2s ease !important;
+}
+
+.see-preview-btn:hover {
+    background-color: #333333 !important;
+}
+
+.stock-count {
+    font-size: 0.75rem;
+    color: #27ae60;            
+    font-weight: 600;
+}
+.stock-count-orange {
+    font-size: 0.78rem !important;
+    color: #ff6600 !important;          /* CHANGED FROM GREEN TO ORANGE: Highlights available inventory */
+    font-weight: 600 !important;
+}
+.store-name {
+    font-size: 0.75rem;
+    color: #777777;            
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   
+}
+/* ======================================================
+   ALIBABA-STYLE CONTAINER SYSTEM
+   ====================================================== */
+
+/* Adds a nice clean spacing layout between section blocks */
+.deals-container-section {
+    padding: 10px 0 !important;
+    background-color: transparent !important;
+}
+
+/* The exact light-grey boxed card styling from Alibaba */
+.alibaba-deals-box {
+    background-color: #f7f7f7 !important; /* Soft light-grey background fill */
+    border-radius: 12px !important;       /* Smoothly rounded container borders */
+    padding: 20px !important;             /* Internal container padding layout */
+    box-shadow: none !important;          /* Flat flat structure, no heavy shadow */
+}
+
+/* Flex layout engine for the header elements */
+.deals-header-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: 16px !important;
+    padding: 0 4px !important;
+}
+
+/* Left text groups layout alignment */
+.header-left-side {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+/* Bold, distinctive heading font style */
+.deals-main-title {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+}
+
+/* Small detail subtitle directly beneath header */
+.deals-sub-text {
+    font-size: 0.88rem !important;
+    color: #666666 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Right-aligned 'View more' link system */
+.deals-view-more {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #222222 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+    margin-top: 4px !important;
+}
+
+.deals-view-more:hover {
+    color: #e53238 !important; /* Transitions nicely to your theme color */
+}
+
+/* ======================================================
+   ALIBABA SPECIFIC DEAL CARDS
+   ====================================================== */
+
+.deals-six-columns {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important; /* Forces 6 equal columns */
+    gap: 9px !important; /* Tightens the spacing between columns just like Alibaba */
+}
+/* The ultra-stripped down layout container */
+.deal-card {
+    width: 100%
+    display: flex !important;
+    flex-direction: column !important;
+    background-color: #fff !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    padding: 0 0 10px 0 !important; /* Shrunk padding to the bare minimum */
+    cursor: pointer;
+}
+
+/* Image containment rules to ensure squares stay square */
+.deal-img-box {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    background-color: #fafafa !important;
+}
+
+.deal-img-box img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Zooms nicely to fit frame edges */
+}
+
+/* Row wrapper sitting right underneath the image frame */
+.deal-info-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 8px 8px 0 8px !important; /* Zero bottom padding brings it tight */
+}
+
+/* The small red down-arrow discount graphics badge */
+.deal-discount-badge {
+    background: linear-gradient(135deg, #ff4d4f, #ff7875) !important; /* Bright attention-grabbing red */
+    color: #ffffff !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 4px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.65rem !important;
+}
+
+/* The large, clear price styling string */
+.deal-price {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #e53238 !important; /* Matches your active brand colors */
+    white-space: nowrap !important;
+}
+/* ==========================================================================
+   RECENTLY VIEWED SECTION - MINIMALIST OVERRIDES
+   ========================================================================== */
+
+/* 1. Target the ratings row ONLY inside the recently viewed container and hide it */
+.recent-scroll-wrapper .aliexpress-rating-row {
+    display: none !important;
+}
+
+/* 2. Target the preview footer container ONLY inside recently viewed and hide it */
+.recent-scroll-wrapper .card-preview-footer {
+    display: none !important;
+}
+
+/* 3. Reset the card's strict height rule for this section so it automatically shrinks */
+.recent-scroll-wrapper .ebay-product-card {
+    min-height: auto !important; /* Removes the 390px stretch restriction */
+    padding-bottom: 12px !important; /* Adds a clean, professional margin below the price */
+}
+/* ==========================================================================
+   FINAL FIX: EBAY CAROUSEL ARROWS LOCKED TO GRID BOUNDS
+   ========================================================================== */
+
+/* 1. Force the section container to allow elements to float past its edge */
+.recent-views-section,
+.recent-views-section .container,
+.main-market .container,
+.deals-container-section .container {
+    position: relative !important;
+    overflow: visible !important; /* Prevents the circular buttons from getting cut off */
+}
+
+/* 2. Styling the prominent white circular button shapes */
+.slider-arrow-prev,
+.slider-arrow-next {
+    position: absolute !important;
+    
+    /* Vertically aligns them perfectly centered with the product image square */
+    top: 160px !important;
+    /* 2. Keeps the arrow box geometrically aligned with your new top value */
+    transform: none !important;
+    
+    /* Perfect Circle Dimensions matching eBay UI layout */
+    width: 40px !important;
+    height: 40px !important;
+    background-color: #ffffff !important;
+    border: 1px solid #d2d2d7 !important; /* Sleek, crisp border line */
+    border-radius: 50% !important;
+    
+    /* Center the inner arrow icon symbol cleanly */
+    color: #1d1d1f !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* CRITICAL LAYERING: Pushes the circles onto the absolute highest surface layer */
+    z-index: 9999 !important; 
+    cursor: pointer !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16) !important; /* Distinct shadow to make it pop */
+    transition: all 0.2s ease !important;
+}
+
+/* 3. Snap the Left Arrow inside the left margin edge over the first product card */
+.slider-arrow-prev {
+    left: 6px !important; /* Moved slightly inward so it doesn't clip into invisible territory */
+}
+
+/* 4. Snap the Right Arrow inside the right margin edge over the last product card */
+.slider-arrow-next {
+    right: 8px !important; /* Moved slightly inward to stay completely visible */
+}
+
+/* 5. Hover and click interactive feedback */
+.slider-arrow-prev:hover,
+.slider-arrow-next:hover {
+    background-color: #f5f5f7 !important;
+    color: #000000 !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22) !important;
+}
+
+.slider-arrow-prev:active,
+.slider-arrow-next:active {
+    transform: scale(0.92) !important;
+}
+/* ==========================================================================
+   MORE TO LOVE: RESTORED STANDARD GRID SYSTEM WITH NO EXPANSION
+   ========================================================================== */
+
+.more-to-love-section {
+    padding: 25px 0 !important;
+    background-color: #f4f4f4 !important;
+}
+
+/* Exactly 5 clean columns per row, completely stable spacing */
+.infinite-products-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important; 
+    gap: 15px !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+}
+
+/* Standard static card frame ending at the ratings container floor */
+.more-to-love-section .ebay-product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    overflow: hidden !important; /* Clips content exactly to card rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Subtle standard hover effect without height change */
+.more-to-love-section .ebay-product-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Image Container Frame */
+.more-to-love-section .market-img-box {
+    position: relative !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+.more-to-love-section .market-img-box img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* Card Information Details Area */
+.more-to-love-section .ebay-product-details {
+    padding: 12px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    background: #ffffff !important;
+}
+
+/* ==========================================================================
+   INFINITE LOADER SPINNER
+   ========================================================================== */
+.infinite-loader {
+    display: none;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 30px 0 !important;
+    width: 100% !important;
+}
+
+.infinite-loader.active {
+    display: flex !important;
+}
+
+.spinner {
+    width: 35px !important;
+    height: 35px !important;
+    border: 3px solid #dddddd !important;
+    border-top: 3px solid #000000 !important;
+    border-radius: 50% !important;
+    animation: spin 0.8s linear infinite !important;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* ==========================================================================
+   TRENDING NOW: DEFINITIVE NO-SCROLL HOVER FIX
+   ========================================================================== */
+
+/* 1. Ensure the slider container acts as the anchor for matching arrows */
+.main-market .container {
+    position: relative !important;
+}
+
+/* 2. FORCE STABLE GRID WITH NO INTERNAL VERTICAL SCROLLING */
+.main-market .product-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;   
+    gap: 1px !important;            
+    padding: 0 0 45px 0 !important; 
+    margin: 0 !important;
+    overflow-x: auto !important;    
+    overflow-y: visible !important; 
+    scroll-behavior: smooth !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    align-items: stretch !important; 
+    height: auto !important;        
+}
+
+/* Hide desktop scrollbars */
+.main-market .product-grid::-webkit-scrollbar {
+    display: none !important;
+}
+.main-market .product-grid {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+/* 3. Strict Card Layout Dimensions */
+.main-market .product-grid .ebay-product-card {
+    flex: 0 0 calc((100% - 4px) / 5) !important;
+    min-width: calc((100% - 4px) / 5) !important;
+    max-width: calc((100% - 4px) / 5) !important;
+    box-sizing: border-box !important;
+    background: #fff !important;
+    position: relative !important; 
+    height: auto !important;
+}
+
+/* 4. Keep details static and unchanged on hover */
+.main-market .ebay-product-details {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px !important;
+    background: #fff !important;
+    height: auto !important;
+}
+
+/* 5. PERFECT HOVER MECHANICS: Shifts the button slightly up to match the line marker */
+.main-market .card-preview-footer {
+    position: absolute !important;
+    top: calc(100% - 4px) !important; /* UPDATED: Sits perfectly flush against the text box */
+    left: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 9999 !important;       
+    
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out !important;
+}
+
+.main-market .ebay-product-card:hover .card-preview-footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 6. Standardized Button Aesthetics with Clean Bottom Curvature */
+.main-market .see-preview-btn {
+    display: block !important;
+    text-align: center !important;
+    background-color: #111111 !important; 
+    color: #ffffff !important;
+    font-size: 0.80rem !important;
+    font-weight: 600 !important;
+    padding: 12px 0 !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 0 0 8px 8px !important; 
+    margin: 0 !important;
+}
+
+.main-market .see-preview-btn:hover {
+    background-color: #333333 !important;
+}
+
+/* 7. SCROLLER ARROWS POSITIONING LOWERED TO THE VERTICAL MIDPOINT */
+.main-market .slider-arrow-prev,
+.main-market .slider-arrow-next {
+    position: absolute !important;
+    top: 170px !important;            /* UPDATED: Centered perfectly on the total card height balance */
+    transform: translateY(-50%) !important;
+    z-index: 10000 !important;       
+}
+
+.main-market #trendingLeft {
+    left: -2px !important; 
+}
+
+.main-market #trendingRight {
+    right: -2px !important;
+}
+/* ==========================================================================
+   MORE TO LOVE: ALIEXPRESS STYLE TITLE & SECTION GAP COMPRESSION
+   ========================================================================== */
+
+/* 1. Force collapse the large gap right below the Trending Now section */
+.main-market {
+    margin-bottom: 15px !important;    /* Tightens space beneath trending cards */
+    padding-bottom: 0 !important;
+}
+
+/* 2. Style the new header wrapper to center the title cleanly */
+.more-to-love-header {
+    text-align: center !important;     /* Centers the title perfectly like AliExpress */
+    margin-top: 4px !important;       /* Brings the header closer to the section above */
+    margin-bottom: 25px !important;    /* Clean gap between title and products grid */
+    width: 100%;
+}
+
+/* 3. Replicate the precise AliExpress typography configuration */
+.more-to-love-title {
+    font-family: "Open Sans", "Inter", -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    font-size: 28px !important;        /* Clean, impactful display size */
+    font-weight: 700 !important;       /* Solid bold look */
+    color: #111111 !important;         /* Rich contrast black */
+    letter-spacing: -0.4px !important; /* Elegant subtle text-tightening */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* ==========================================================================
+   MORE TO LOVE: COMPLETELY MATCH TRENDING NOW + COMPRESS VERTICAL ROWS
+   ========================================================================== */
+
+/* 1. Configure the grid to align cards upward and lock gaps tightly */
+.more-to-love-section .infinite-products-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important; /* Forces 5 items per row like trending */
+    
+    /* THE CRITICAL GAP CLOSER: Tightens columns to 15px, slams row gap to 8px */
+    column-gap: 1px !important; 
+    row-gap: 5px !important; 
+    
+    align-items: start !important; /* Prevents cards in a row from stretching each other */
+    width: 100% !important;
+}
+
+/* 2. Force the boxes in More To Love to match Trending Now structure perfectly */
+.more-to-love-section .ebay-product-card {
+    height: max-content !important;    /* Collapses box down to fit contents exactly */
+    min-height: 0 !important;          /* Eliminates any old downward minimum stretches */
+    background: #ffffff !important;
+    border: 1px solid #e8e8e8 !important;
+    border-radius: 8px 8px 0px 0px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    
+    /* Clean micro-gap bottom padding */
+    padding-bottom: 6px !important; 
+}
+
+/* 3. Drop all internal text content area fluid expansions */
+.more-to-love-section .ebay-product-details {
+    flex-grow: 0 !important;
+    flex: none !important;
+    height: auto !important;
+    padding-bottom: 0 !important;
+}
+
+/* 4. Ensure no button margins leak downward space */
+.more-to-love-section .ebay-product-card button,
+.more-to-love-section .see-preview-btn {
+    margin-bottom: 0 !important;
+}
+/* ==========================================================================
+   SHARED RATING ELEMENTS CONTAINER FLOW CONFIGURATION
+   ========================================================================== */
+.ebay-rating-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;              /* Spacing between stars, numerical value, and sales count */
+    margin: 4px 0 6px 6px !important; /* Perfect micro-gap margin below the price numbers */
+}
+
+.ebay-stars {
+    color: #ffc107 !important;        /* Premium gold yellow rating star color fill */
+    font-size: 0.75rem !important;
+    display: flex !important;
+    gap: 1px !important;
+}
+
+.ebay-rating-value {
+    font-family: "Inter", sans-serif !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;       /* Clean bold rating numerical emphasis */
+    color: #333333 !important;
+}
+
+.ebay-sales-count {
+    font-family: "Inter", sans-serif !important;
+    font-size: 0.75rem !important;
+    font-weight: 400 !important;
+    color: #777777 !important;         /* Professional muted gray text for item sales metrics */
+    margin-left: 2px !important;
+}
+/* ==========================================================================
+   FORCE SHOW STAR ICONS IN MORE TO LOVE SECTION
+   ========================================================================== */
+
+/* Ensure the star icons wrapper handles font characters correctly */
+.more-to-love-section .ebay-stars {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 1px !important;
+    color: #ffc107 !important;       /* Solid gold yellow color for the stars */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force individual Font Awesome star icons to render structural size */
+.more-to-love-section .ebay-stars i {
+    display: inline-block !important;
+    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;      /* Required weight by Font Awesome for solid icons */
+    font-style: normal !important;
+    font-size: 0.75rem !important;    /* Matches your text rating scale */
+}
+
+/* Make sure the rating text sets up a clean space right after the stars */
+.more-to-love-section .ebay-rating-value {
+    margin-left: 2px !important;
+    font-size: 0.75rem !important;
+}
+/* ==========================================================================
+   MORE TO LOVE: RATING VALUE VERTICAL SEPARATOR LINE
+   ========================================================================== */
+
+.more-to-love-section .ebay-rating-value {
+    display: inline-block !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    
+    /* THE SEPARATOR: Creates a subtle gray line to the right of the numbers */
+    border-right: 1px solid #cccccc !important; 
+    
+    /* Spacing balances: pushes line away from text, and moves sales count right */
+    padding-right: 6px !important;
+    margin-right: 4px !important;
+    
+    /* Ensures line stands tall matching textual layout scales */
+    line-height: 1 !important; 
+}
+
+/* ==========================================================================
+   POSITION-ADJUSTED CAMERA CONTAINER (Fixed Bottom-of-File Structure)
+   ========================================================================== */
+.image-search-modal {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Keeps the dimming backdrop effect over the rest of the page */
+    background: rgba(0, 0, 0, 0.4) !important; 
+    z-index: 1000000 !important;
+    display: flex;
+    
+    /* 1. REMOVES CENTER ALIGNMENT: Shifts positioning control to top-left margins */
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+/* JavaScript Active Toggle */
+.image-search-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* The White Card Window Box */
+.modal-content-card {
+    background: #ffffff !important;
+    width: 500px; /* Precise eBay container layout width */
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2) !important;
+    position: relative;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+
+    /* 2. CUSTOM SCREEN COORDINATES:
+       Adjust these two values to line up perfectly with your website's header */
+    margin-top: 105px;    /* Shoves it up closer to the bottom line of the orange search bar */
+    margin-left: 28vw;  /* Slides it leftward to anchor perfectly under your camera icon */
+
+    transform: translateY(-10px);
+    transition: transform 0.2s ease;
+}
+
+.image-search-modal.active .modal-content-card {
+    transform: translateY(0);
+}
+
+/* Close Window (X) Button */
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #111111;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-content-card h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 24px;
+    font-family: sans-serif;
+}
+
+/* Dashed Drag & Drop Area */
+.upload-drop-zone {
+    border: 2px dashed #cccccc;
+    border-radius: 12px;
+    background: #f9f9f9;
+    padding: 30px 20px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.upload-drop-zone:hover, .upload-drop-zone.dragover {
+    background: #f2f2f2;
+    border-color: #666666;
+}
+
+.upload-icon-circle {
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    color: #666666;
+}
+
+.upload-drop-zone p {
+    font-size: 16px;
+    color: #333333;
+    margin: 0;
+}
+
+.browse-link {
+    color: #0044cc;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 16px !important;
+}
+
+/* "or" Divider Line */
+.modal-divider {
+    margin: 20px 0;
+    position: relative;
+    text-align: center;
+}
+
+.modal-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #e5e5e5;
+    z-index: 1;
+}
+
+.modal-divider span {
+    background: #ffffff;
+    padding: 0 15px;
+    color: #767676;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Link Bar Form Elements */
+.image-url-form {
+    display: flex;
+    gap: 10px;
+}
+
+#imageUrlInput {
+    flex: 1;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #cccccc;
+    border-radius: 24px;
+    font-size: 14px;
+    outline: none;
+}
+
+#imageUrlInput:focus {
+    border-color: #333333;
+}
+
+.image-url-submit-btn {
+    height: 40px;
+    padding: 0 24px;
+    border: 1px solid #0044cc;
+    background: #ffffff;
+    color: #0044cc;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.image-url-submit-btn:hover {
+    background: #f4f7fe;
+}
+
+/* ==========================================================================
+   ALIBABA SPECIFICATION: SHIFTED LEFT, WIDER & TALLER CONTAINER FIX
+   ========================================================================== */
+
+/* Keeps the outer container acting exactly like an invisible ghost element */
+.ps-messages-module {
+    display: inline-block !important;
+}
+
+/* 🎯 UPDATED CONTAINER: Sits tight below icon, shifted right, wide, and tall */
+.ps-messages-module .ps-alibaba-msg-card {
+    position: absolute;
+    top: calc(100% + 2px);                         
+    right: -110px;                      /* Pushes the container further to the right */
+    left: auto !important;             
+    transform: none !important;        
+    width: 300px;                      /* Large premium width */
+    min-height: 200px;                 /* Spacious canvas height */
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;     
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12) !important; 
+    display: none;                     
+    flex-direction: column !important;
+    z-index: 999999 !important;        
+    overflow: hidden;
+    cursor: default;                   
+}
+
+/* Invisible hover bridge to maintain mouse connection gap */
+.ps-messages-module .ps-alibaba-msg-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;                        
+    left: 0;
+    width: 100%;
+    height: 20px;                      
+    background: transparent !important;
+}
+
+/* Reveal rules mapped onto mouse interaction state */
+.ps-messages-module:hover .ps-alibaba-msg-card {
+    display: flex !important;
+}
+
+/* HEADER STYLE (Top-Left Alignment) */
+.ps-msg-card-header {
+    display: block !important;
+    padding: 20px 24px 4px 24px !important; 
+    text-align: left !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ps-msg-card-header h3 {
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* BODY CONTENT (Perfect Horizontal and Vertical Center Alignment) */
+.ps-msg-card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;    
+    justify-content: center !important;
+    flex-grow: 1;                      
+    padding: 24px !important;
+    text-align: center !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Centered graphic icon container canvas */
+.ps-msg-center-graphic {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-bottom: 16px !important; 
+    width: 100%;
+}
+
+/* STYLING FOR YOUR CUSTOM CHAT IMAGE */
+.ps-custom-msg-icon {
+    width: 90px !important;            /* Scaled up beautifully to match Alibaba */
+    height: auto !important;           
+    object-fit: contain !important;
+}
+
+/* Middle text description prompt label */
+.ps-msg-center-text {
+    display: block !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    color: #64748b !important;
+    font-weight: 400 !important;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* 🎯 NEW: WHITE FOOTER TRACK THAT CENTERS THE PILL BUTTON */
+.ps-msg-card-footer-container {
+    display: flex !important;
+    justify-content: center !important; /* Horizontally centers the compact orange pill */
+    align-items: center !important;
+    padding: 16px 0 !important;        
+    background-color: #ffffff !important; 
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #f1f5f9 !important; 
+}
+
+/* 🎯 UPDATED: COMPACT ALIBABA-STYLE ORANGE PILL BUTTON */
+.ps-msg-card-footer {
+    display: inline-block !important;   /* Shrinks the element down to look like a small button */
+    text-align: center !important;
+    padding: 6px 24px !important;       /* Compact vertical height padding */
+    font-size: 13px !important;
+    font-weight: 600 !important;        
+    color: #ffffff !important;         
+    text-decoration: none !important;
+    background-color: #ff5000 !important; /* Exact Orange Match */
+    border-radius: 20px !important;    /* Creates smooth rounded pill edges */
+    cursor: pointer !important;
+    font-family: system-ui, -apple-system, sans-serif;
+    transition: background-color 0.2s ease !important;
+}
+
+.ps-msg-card-footer:hover {
+    background-color: #e04600 !important; 
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   ALEXPRESS OVER-IMAGE FLOATING CART BUTTON INTERFACE
+   ========================================================================== */
+
+/* Forces the container boxes to establish standard spatial boundaries */
+.market-img-box,
+.deal-img-box {
+    position: relative !important;
+    overflow: visible !important; /* Critical: allows the button container to pop past the bottom border */
+}
+
+
+/* THE FLOATING CIRCULAR INTERACTIVE BUTTON COMPONENT */
+.ps-image-cart-btn {
+    position: absolute !important;
+    bottom: 15px !important;            /* Positions it beautifully clear of the image boundaries */
+    right: 15px !important;             /* Aligns it directly with the right-hand layout edge */
+    width: 38px !important;             /* Compact circular footprint */
+    height: 38px !important;
+    border-radius: 50% !important;      /* Forces a perfect circle geometry */
+    background-color: #ffffff !important; /* Premium clean white masking layer base */
+    border: 1px solid #e2e8f0 !important; /* Soft edge definition hairline border */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08) !important; /* Soft depth separation overlay shadow */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    z-index: 25 !important;             /* Ensures it floats safely over nested product image layers */
+    padding: 0 !important;
+    outline: none !important;
+}
+
+/* Internal glyph element settings */
+.ps-image-cart-btn i {
+    font-size: 16px !important;
+    color: #1e293b !important;          /* Elegant neutral dark color tint */
+    transition: color 0.2s ease !important;
+}
+
+/* 🎯 HOVER FOCUS ALIGNMENT: Transforms into your brand orange theme background */
+.ps-image-cart-btn:hover {
+    background-color: #ff6600 !important; /* PalmSokoni/AliExpress interactive signature orange accent */
+    border-color: #ff6600 !important;
+    transform: scale(1.1) !important; /* Elegant hover bounce feedback micro-animation */
+}
+
+.ps-image-cart-btn:hover i {
+    color: #ffffff !important;          /* Glyph flips cleanly to high-contrast white */
+}
+
+/* Mechanical click press state collapse pop */
+.ps-image-cart-btn:active {
+    transform: scale(0.94) !important;
+}
+/* ==========================================================================
+   EBAY-STYLE FLOATING WATCHLIST (HEART) BUTTON INTERFACE
+   ========================================================================== */
+
+.ps-watchlist-btn {
+    position: absolute !important;
+    top: 15px !important;              /* Aligned beautifully from top boundary edge */
+    right: 15px !important;            /* Aligned right to prevent stacking over description rows */
+    width: 34px !important;            /* Sleek, distinct circular dimensions */
+    height: 34px !important;
+    border-radius: 50% !important;     /* Forces perfect circle layout geometry */
+    background-color: #ffffff !important; /* Clean white solid structural masking block */
+    border: 1px solid rgba(0, 0, 0, 0.05) !important; /* Near-invisible soft hairline border */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08) !important; /* Subtle floating elevation drop-shadow */
+    z-index: 40 !important;            /* Safeguards viewport stack execution order */
+    padding: 0 !important;
+    outline: none !important;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease;
+}
+
+/* Base Regular Heart Glyph Vector Sizing */
+.ps-watchlist-btn i {
+    font-size: 16px !important;
+    color: #4b5563 !important;         /* Sleek neutral grey contour line outline tint */
+    transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Hover Action Feedback Gesture */
+.ps-watchlist-btn:hover {
+    transform: scale(1.08) !important;
+    background-color: #f9fafb !important;
+}
+
+.ps-watchlist-btn:hover i {
+    color: #ef4444 !important;         /* Heart turns red on hover previewing click action */
+}
+
+/* 🎯 CLICKED STATE MECHANICS: Turns solid red and locks in place */
+.ps-watchlist-btn.active i {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;       /* Hard switch to render Solid FontAwesome glyph format */
+    color: #ff3b30 !important;         /* Vivid signature interactive heart notification red */
+    animation: heartBeatPop 0.3s ease-out forwards;
+}
+
+/* Tactile micro pop pulse animation effect */
+@keyframes heartBeatPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+/* ==========================================================================
+   ALIBABA SHOPPING CART DROPDOWN SYSTEM
+   ========================================================================== */
+
+/* 1. Sets an anchor benchmark point without changing layout widths */
+#cart-icon {
+    position: relative !important;
+}
+
+/* 2. Hidden baseline layout parameters */
+.ps-cart-dropdown {
+    position: absolute !important;
+    top: 50px !important;            
+    right: 25px !important;          
+    width: 320px !important;
+    height: auto !important;         
+    min-height: 200px !important;    /* 🚀 LOCKED TO YOUR CHOSEN 220PX BASELINE */
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    padding: 14px 20px 16px 20px !important; /* Optimizes padding inside tighter limits */
+    z-index: 99999 !important;
+    cursor: default !important;
+    box-sizing: border-box !important;
+    
+    /* Use standard Flex layout to organize the header line and content area */
+    display: flex !important;
+    flex-direction: column !important;
+    
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(10px) !important;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease !important;
+}
+
+.ps-cart-dropdown.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* ==========================================================================
+   ALIBABA TOP-LEFT HEADER TITLE
+   ========================================================================== */
+.ps-cart-dropdown-header {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;     
+    border-bottom: 1px solid #f1f5f9 !important; 
+    padding-bottom: 6px !important;
+    margin-bottom: 12px !important; /* Reduces the gap right beneath the title line */
+}
+
+.ps-cart-dropdown-header span {
+    font-size: 15px !important;
+    font-weight: 700 !important;    
+    color: #1e293b !important;
+    font-family: inherit !important;
+}
+
+/* ==========================================================================
+   INSIDE CONTENT UI ELEMENTS (COMPACT ALIBABA LAYOUT)
+   ========================================================================== */
+.ps-cart-dropdown .ps-dropdown-empty-state {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* Spaces items evenly within remaining room */
+    flex-grow: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Forces child items to behave correctly as vertical blocks */
+.ps-cart-dropdown .ps-dropdown-empty-state > * {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    /* 🚀 REMOVED PREVIOUS DESTRUCTIVE RELATIVE POSITIONING EXPANSIONS */
+    position: static !important; 
+}
+
+/* 1. Top Element: Centered 3D Image */
+.ps-cart-dropdown .ps-empty-cart-icon {
+    margin-top: 0px !important;     /* Pulled closer to the divider line */
+    margin-bottom: 0px !important;
+    text-align: center !important;  
+}
+
+.ps-cart-dropdown .ps-3d-cart-img {
+    width: 110px !important;          /* Sized down to match the new 220px box */
+    height: 100px !important;         
+    object-fit: contain !important;  
+    display: block !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    top: -10px !important;       
+}
+
+/* 2. Middle Element: Text status string spacing */
+.ps-cart-dropdown p.ps-empty-text {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    line-height: 1.3 !important;
+    font-family: inherit !important;
+    margin: 5px auto 14px auto !important;
+    position: static !important;
+}
+
+/* 3. Bottom Element: Pill Action Link button */
+.ps-cart-dropdown a.ps-go-to-cart-btn {
+    padding: 8px 0 !important;       /* Slightly narrowed padding for sleek pill profile */
+    border: 1px solid #1e293b !important;
+    border-radius: 24px !important;   
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    margin-top: 10px !important;     /* Tells layout engine to lock button directly above bottom padding */
+    
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.ps-cart-dropdown a.ps-go-to-cart-btn:hover {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+}
+/* ==========================================================================
+   GLOBAL DARK MODE THEME BASE
+   ========================================================================== */
+body.dark-mode {
+    background-color: #121212 !important; /* Premium deep charcoal frame background */
+    color: #f8fafc !important;            /* High-legibility off-white text */
+}
+
+/* ==========================================================================
+   TOP BAR & ACCENT CONTRASTS
+   ========================================================================== */
+body.dark-mode .top-bar {
+    background-color: #1a1a1a !important;
+    border-bottom: 1px solid #2d2d2d !important;
+}
+
+body.dark-mode .top-bar a,
+body.dark-mode .top-bar .top-left a {
+    color: #94a3b8 !important; /* Muted gray for small utility links */
+}
+
+body.dark-mode .top-bar a:hover {
+    color: #ffffff !important;
+}
+
+/* Sell on PalmSokoni Button Link Adjustment */
+body.dark-mode .sell-btn {
+    color: #cbd5e1 !important;
+}
+
+/* Dark Mode Toggle Button Core Look */
+body.dark-mode .dark-mode-toggle {
+    background-color: #2d2d2d !important;
+    border: 1px solid #404040 !important;
+    color: #fbbf24 !important; /* Makes sun icon golden yellow */
+}
+
+/* ==========================================================================
+   MAIN LAYOUT & PRODUCT GRID BALANCING
+   ========================================================================== */
+/* Section Backgrounds (Category containers, banners wrapper) */
+body.dark-mode .main-content,
+body.dark-mode main,
+body.dark-mode section {
+    background-color: #121212 !important;
+}
+
+/* Product Cards Grid Structure (Keeps items perfectly separated) */
+body.dark-mode .product-card,
+body.dark-mode .product-item,
+body.dark-mode .trending-card {
+    background-color: #1e1e1e !important; /* Elevated lighter charcoal layer */
+    border: 1px solid #2d2d2d !important;   /* Soft separation lines instead of harsh white shadows */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Product Header Titles inside cards */
+body.dark-mode .product-card h3,
+body.dark-mode .product-title,
+body.dark-mode .product-name {
+    color: #ffffff !important;
+}
+
+/* Product Price Tags visibility */
+body.dark-mode .product-price,
+body.dark-mode .price-tag {
+    color: #ff6b35 !important; /* Keeps core pricing structure punchy */
+}
+
+/* Product Card Images (Corrects contrast issues against dark backdrops) */
+body.dark-mode .product-card img,
+body.dark-mode .product-image {
+    background-color: transparent !important;
+    filter: brightness(0.95) contrast(1.02);
+}
+
+/* ==========================================================================
+   DROPDOWNS INTERIOR BALANCING
+   ========================================================================== */
+body.dark-mode .ps-cart-dropdown,
+body.dark-mode .ps-watchlist-dropdown {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333333 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.dark-mode .ps-cart-dropdown-header,
+body.dark-mode .ps-watchlist-dropdown-header {
+    border-bottom: 1px solid #333333 !important;
+}
+
+body.dark-mode .ps-cart-dropdown-header span,
+body.dark-mode .ps-watchlist-dropdown-header span {
+    color: #ffffff !important;
+}
+
+body.dark-mode a.ps-go-to-cart-btn,
+body.dark-mode a.ps-go-to-watchlist-btn {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode a.ps-go-to-cart-btn:hover,
+body.dark-mode a.ps-go-to-watchlist-btn:hover {
+    background-color: #ffffff !important;
+    color: #121212 !important;
+}
+/* ==========================================================================
+   DARK MODE SECTIONS CONTRAST BALANCING
+   ========================================================================== */
+
+/* 1. Global Rule: Turn all standard page h2 headers white when dark mode is active */
+body.dark-mode h2 {
+    color: #ffffff !important;
+}
+
+/* 2. Top Deals Override: Force the headers INSIDE the white box to STAY dark */
+body.dark-mode .alibaba-deals-box .deals-main-title {
+    color: #212529 !important; /* Elegant off-black to keep perfect contrast */
+}
+
+body.dark-mode .alibaba-deals-box .deals-sub-text {
+    color: #6c757d !important; /* Balanced grey for the subtitle text */
+}
+
+body.dark-mode .alibaba-deals-box .deals-view-more {
+    color: #212529 !important; /* Keeps the top deals "View more" link dark text */
+}
+body.dark-mode .top-auth-link {
+    color: #60a5fa !important;
+}
+body.dark-mode .top-bar-welcome {
+    color: #cbd5e1;
+}
+
+/* ==========================================================================
+   STANDALONE HEADER LINK STYLING (Trending Now, Recently Viewed, etc.)
+   ========================================================================== */
+/* 1. Keeps your recently viewed section "See All" blue (Unchanged) */
+body.dark-mode .section-header a,
+body.dark-mode .view-more-link,
+body.dark-mode a[class*="see-all"] {
+    color: #38bdf8 !important;
+}
+
+/* 2. Forces the Trending Now "View more" link to be White by default */
+body.dark-mode h2 ~ a,
+body.dark-mode h2 ~ span a,
+body.dark-mode main a:contains("View more"),
+body.dark-mode .trending-card -header a,
+body.dark-mode a:not(.deals-view-more)[href]:has(i) {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* 3. Brute-force fix: Target the link explicitly by its structure next to the header */
+body.dark-mode main h2 + a,
+body.dark-mode h2 ~ a[href] {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* 4. Hover State: Makes the "View more" turn blue when you hover over it */
+body.dark-mode main h2 + a:hover,
+body.dark-mode h2 ~ a[href]:hover {
+    color: #38bdf8 !important; /* Electric sky blue on hover */
+    background: transparent !important;
+}
+/* ==========================================================================
+   🔥 COMPLETELY INDEPENDENT VIEW-MORE HOVER UNDERLINE OVERRIDE
+   ========================================================================== */
+
+/* Target the text element explicitly on hover */
+body.dark-mode h2 ~ a:not(.deals-view-more):hover,
+body.dark-mode h2 + a:not(.deals-view-more):hover,
+body.dark-mode main a[class*="view-more"]:not(.deals-view-more):hover {
+    color: #38bdf8 !important;
+    background-color: transparent !important;
+    text-decoration: underline !important; /* Kill standard broken underline engine */
+    position: relative !important;   /* Setup safe anchor point for custom line */
+    display: inline-inline-block !important;
+}
+
+/* Manually draw a crisp blue line right under the characters */
+body.dark-mode h2 ~ a:not(.deals-view-more):hover::after,
+body.dark-mode h2 + a:not(.deals-view-more):hover::after,
+body.dark-mode main a[class*="view-more"]:not(.deals-view-more):hover::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -2px !important;       /* Positions the underline perfectly below text */
+    width: 100 !important;         /* Spans the exact width of the words */
+    height: 2px !important;        /* Thick custom line */
+    background-color: #38bdf8 !important; /* Matches your electric blue color */
+}
+/* ==========================================================================
+   EBAY-STYLE MEGA DROPDOWN SYSTEM (PRECISE POSITION OVERLAP FIX)
+   ========================================================================== */
+
+/* 1. Parent Layout Anchors */
+.nav-categories {
+    position: relative; 
+    /* 🌟 BRINGS THE WHOLE NAV BAR LAYER FORWARD */
+    z-index: 1000; 
+}
+
+.nav-container .nav-item-dropdown {
+    position: static; 
+    display: inline-flex;
+    align-items: center;
+}
+
+/* 2. Repositioned Dropdown Panel Box */
+.mega-dropdown-menu {
+    display: none;                
+    position: absolute;
+    
+    /* 🌟 EBAY PLACEMENT ALIGNMENT */
+    top: 30px;                     
+    left: 4%;
+    right: 4%;
+    width: 90%;                   
+    min-height: 300px;            
+    
+    background-color: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    
+    /* 🌟 REMOVES ROUNDED CORNERS AT THE TOP LAYER TO ATTACH CLEANLY TO THE LINE */
+    border-radius: 16px 16px 16px 16px;
+    
+    /* 🌟 THE VISIBLE TOP BORDER LINE: Distinct colored borders around the panel box */
+    border: 1px solid #e2e8f0;    
+    border-top: 1px solid #e2e8f0 !important; 
+    
+    padding: 24px 30px;           
+    
+    /* 🌟 ELEVATES BEYOND THE WHITE HEADER BACKGROUND */
+    z-index: 999999 !important;               
+    box-sizing: border-box;
+}
+
+/* 🌟 EXTENDED MOUSE-BRIDGE */
+.mega-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;       
+    left: 0;
+    width: 100%;
+    height: 20px;     
+    background: transparent; 
+    z-index: -1;
+}
+
+/* HOVER KEEP-ALIVE ZONE */
+.nav-container .nav-item-dropdown:hover .mega-dropdown-menu,
+.mega-dropdown-menu:hover {
+    display: block;
+}
+
+/* 🌟 HOVER KEEP-ALIVE ZONE: Zero drop gap means fluent, non-flickering navigation cursor movement */
+.nav-container .nav-item-dropdown:hover .mega-dropdown-menu,
+.mega-dropdown-menu:hover {
+    display: block;
+}
+
+/* 3. Dropdown Layout Grid Content */
+.mega-dropdown-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.5fr; 
+    gap: 35px;                        
+    text-align: left;
+}
+
+/* Left side navigation links area */
+.mega-left-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;                        
+}
+
+.mega-category-group h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 12px 0;
+    padding: 0;
+}
+
+.mega-category-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-category-group ul li {
+    margin-bottom: 8px;               
+}
+
+.mega-category-group ul li a {
+    font-size: 13px;
+    color: #64748b;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.15s ease;
+}
+
+.mega-category-group ul li a:hover {
+    color: #0052cc;
+    text-decoration: underline;
+}
+
+/* 4. Right Side Card Banner Promo */
+/* ==========================================================================
+   MEGA DROPDOWN BANNER TOP-ALIGNMENT FIX
+   ========================================================================== */
+.mega-right-col {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;               /* Symmetrical vertical padding at the top */
+    display: flex;
+    justify-content: space-between;
+    
+    /* FIX: Changed from center to flex-start to let text sit cleanly at the top */
+    align-items: flex-start !important; 
+    
+    overflow: hidden;
+    min-height: 250px;                     
+    box-sizing: border-box;
+    margin-right: -20px !important;
+}
+
+.promo-info {
+    flex: 1;
+    padding-right: 15px;
+    
+    /* FIX: Converts the text container to a column flexbox to preserve internal spacing */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    height: 100% !important;
+}
+
+.promo-info h2 {
+    font-size: 28px;                 
+    font-weight: 800;
+    color: #0369a1;
+    margin: 0 0 6px 0 !important;     /* Snaps title to the top edge padding */
+}
+
+.promo-info p {
+    font-size: 16px;
+    color: #0c4a6e;
+    margin: 0 0 24px 0 !important;    /* Clean spacing push before the explore button */
+    line-height: 1.4;
+    max-width: 160px !important;
+}
+
+/* Ensure the button doesn't stretch or distort from the flex adjustments */
+.promo-info .promo-btn, 
+.promo-info a {
+    align-self: flex-start !important; /* Locks button leftward */
+    margin-top: auto !important;       /* Keeps button low if content is short */
+}
+
+.promo-btn {
+    display: inline-block;
+    background-color: #0284c7;
+    color: #ffffff !important;
+    padding: 8px 20px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.promo-btn:hover {
+    background-color: #0369a1;
+}
+
+.promo-image {
+    flex: 1.1;                        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.promo-image img {
+    max-height: 200px;               
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.08)); 
+}
+
+/* ==========================================================================
+   🌙 DARK MODE COMPATIBILITY OVERRIDES
+   ========================================================================== */
+body.dark-mode .mega-dropdown-menu {
+    background-color: #1e1e1e !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .mega-category-group h3 {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .mega-category-group ul li a {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .mega-category-group ul li a:hover {
+    color: #38bdf8 !important;
+}
+
+body.dark-mode .mega-right-col {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .promo-info h2 {
+    color: #38bdf8 !important;
+}
+
+body.dark-mode .promo-info p {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .promo-btn {
+    background-color: #38bdf8;
+    color: #0f172a !important;
+}
+
+body.dark-mode .promo-btn:hover {
+    background-color: #7dd3fc;
+}
+/* ==========================================================================
+   CLICK-TRIGGERED WATCHLIST DROPDOWN SYSTEM
+   ========================================================================== */
+
+.watchlist-dropdown-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.watchlist-trigger-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.watchlist-badge-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background-color: #e11d48;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 10px;
+    line-height: 1;
+}
+
+/* 1. Base Dropdown Window Box Layout */
+.watchlist-dropdown-panel {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    right: 0;             
+    width: 340px;         
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    margin-top: 2px;
+    z-index: 999999;
+    overflow: hidden;
+}
+
+/* 🌟 CLASS TRIGGER: Applied instantly via JavaScript click */
+.watchlist-dropdown-panel.show {
+    display: block;
+}
+
+/* Toggle Visibility Hooks for Inner Content States */
+.watchlist-state-empty,
+.watchlist-state-populated {
+    display: none;
+}
+.watchlist-state-empty.active,
+.watchlist-state-populated.active {
+    display: block;
+}
+
+/* ==========================================================================
+   STATE A: PREMIUM EMPTY VIEWPORTS
+   ========================================================================== */
+.watchlist-state-empty {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.empty-state-icon {
+    font-size: 28px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+}
+
+.watchlist-state-empty h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+}
+
+.watchlist-state-empty p {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.watchlist-empty-cta {
+    display: inline-block;
+    background-color: #0052cc;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 20px;
+    border-radius: 20px;
+    transition: background-color 0.15s ease;
+}
+
+.watchlist-empty-cta:hover {
+    background-color: #0040a3;
+}
+
+/* ==========================================================================
+   STATE B: POPULATED ITEM LIST COMPONENT
+   ========================================================================== */
+.watchlist-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.watchlist-panel-header h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.watchlist-panel-header .view-all-link {
+    font-size: 11px;
+    color: #0052cc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.watchlist-panel-header .view-all-link:hover {
+    text-decoration: underline;
+}
+
+.watchlist-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 260px; 
+    overflow-y: auto;
+}
+
+.watchlist-item-card {
+    display: flex;
+    gap: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.1s ease;
+}
+
+.watchlist-item-card:hover {
+    background-color: #f8fafc;
+}
+
+.item-img-link {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    background-color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-img-link img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.item-details-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.item-title-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: #334155;
+    text-decoration: none;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+
+.item-title-text:hover {
+    color: #0052cc;
+}
+
+.item-price-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.current-price {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.original-price {
+    font-size: 10px;
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+.shipping-tag {
+    font-size: 10px;
+    color: #15803d;
+    font-weight: 500;
+}
+
+.item-status-pill {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 4px;
+}
+
+.item-status-pill.stock-low {
+    background-color: #fef2f2;
+    color: #b91c1c;
+}
+
+.item-status-pill.price-drop {
+    background-color: #f0fdf4;
+    color: #16a34a;
+}
+
+.watchlist-panel-footer {
+    padding: 10px 14px;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.full-watchlist-btn {
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #334155 !important;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 0;
+    border-radius: 6px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all 0.15s ease;
+}
+
+.full-watchlist-btn:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+/* ==========================================================================
+   🌙 DARK MODE COMPATIBILITY
+   ========================================================================== */
+body.dark-mode .watchlist-dropdown-panel {
+    background-color: #1e1e1e;
+    border-color: #334155;
+}
+body.dark-mode .watchlist-state-empty h3,
+body.dark-mode .watchlist-panel-header h3,
+body.dark-mode .current-price {
+    color: #f1f5f9;
+}
+body.dark-mode .watchlist-item-card {
+    border-bottom-color: #2d3748;
+}
+body.dark-mode .watchlist-item-card:hover {
+    background-color: #2d3748;
+}
+body.dark-mode .item-title-text {
+    color: #cbd5e1;
+}
+body.dark-mode .watchlist-panel-footer {
+    background-color: #171717;
+    border-top-color: #2d3748;
+}
+body.dark-mode .full-watchlist-btn {
+    background-color: #262626;
+    border-color: #404040;
+    color: #cbd5e1 !important;
+}
+/* ==========================================================================
+   RECENTLY VIEWED - ISOLATED SLIDER CONVEYOR (5PX GAP PRESERVATION)
+   ========================================================================== */
+
+/* Forces the container to be the absolute positioning anchor for your arrows */
+/* Forces the container to be the absolute positioning anchor for your arrows */
+.recent-views-section .container {
+    position: relative !important;
+}
+
+/* Converts the wrapper into a clean horizontal slider without breaking individual card styling */
+#recentTrack.recent-scroll-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Locks items on one endless line */
+    gap: 1px !important;          /* Sets the precise spacing gap you prefer */
+    padding: 0 !important;        /* Flushes layout with container edges */
+    overflow-x: auto !important;  /* Allows elements to sit off-screen safely */
+    scroll-behavior: smooth !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Clear desktop system scrollbars completely */
+#recentTrack.recent-scroll-wrapper {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+#recentTrack.recent-scroll-wrapper::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Sizing Formula: Fits exactly 5 cards perfectly into view factoring the new 1px gaps */
+#recentTrack.recent-scroll-wrapper .ebay-product-card {
+    flex: 0 0 calc((100% - 4px) / 5) !important;
+    min-width: calc((100% - 4px) / 5) !important;
+    max-width: calc((100% - 4px) / 5) !important;
+    box-sizing: border-box !important;
+}
+
+/* Perfect alignment for your arrow controllers relative to the container */
+.recent-views-section .container #recentLeft {
+    position: absolute !important;
+    top: 140px !important;        /* Clear fixed height value syncing directly to your black mark line */
+    transform: translateY(0) !important; /* FIXED: Strips out the vertical centering offset constraint */
+    left: 7px !important;         /* Moves the arrow inward to line up with the card image border */
+    z-index: 10 !important;
+}
+
+.recent-views-section .container #recentRight {
+    position: absolute !important;
+    top: 140px !important;        /* Clear fixed height value syncing directly to your black mark line */
+    transform: translateY(0) !important; /* FIXED: Strips out the vertical centering offset constraint */
+    right: 7px !important;        /* Moves the arrow inward to line up with the card image border */
+    z-index: 10 !important;
+}
+/* ==========================================================================
+   TOP DEALS CAROUSEL OVERRIDES (EXACT RECENTLY VIEWED MATCH)
+   ========================================================================= */
+
+/* 1. Sync the outer structural container layout reference rules */
+.alibaba-deals-box {
+    position: relative !important;
+}
+
+/* 2. Configure a clean horizontal conveyor layout rail */
+#dealsTrack.deals-six-columns {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Forces cards strictly into a single line */
+    gap: 9px !important;          /* PRESERVES YOUR EXACT 9PX ALIBABA GRID SPACING */
+    padding: 0px !important;
+    overflow-x: auto !important;  /* Handles offscreen overflow */
+    scroll-behavior: smooth !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    
+    /* Cleanly strip out native browser desktop layout scrollbars */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+#dealsTrack.deals-six-columns::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* 3. Sizing Equation: Fits exactly 6 responsive items in the viewport row frame */
+#dealsTrack.deals-six-columns .deal-card {
+    flex: 0 0 calc((100% - (9px * 5)) / 6) !important;
+    min-width: calc((100% - (9px * 5)) / 6) !important;
+    max-width: calc((100% - (9px * 5)) / 6) !important;
+    box-sizing: border-box !important;
+}
+
+/* 4. Shifted upward to precisely align with your black markings */
+.alibaba-deals-box .slider-arrow-prev,
+.alibaba-deals-box .slider-arrow-next {
+    position: absolute !important;
+    top: 180px !important; /* Decreased from 200px to nudge them a few points up */
+    transform: translateY(-50%) !important;
+    z-index: 10 !important;
+    cursor: pointer !important;
+}
+
+/* 5. Keeps them perfectly inside the card content borders */
+.alibaba-deals-box #dealsLeft {
+    left: 0px !important;   
+}
+
+.alibaba-deals-box #dealsRight {
+    right: 0px !important;  
+}
+/* ==========================================================================
+   PRODUCTION REVISION: SHARP-EDGED INSTANT DISAPPEARANCE OVERLAY
+   ========================================================================== */
+
+/* 1. Prevent parent layouts from enforcing boundary clipping limits */
+.more-to-love-section,
+.more-to-love-section .container,
+.infinite-products-grid,
+#infiniteProductGrid {
+    overflow: visible !important;
+    clip-path: none !important;
+    contain: none !important;
+}
+
+/* 2. Flat Stationary Product Layout Window Card Base Frame */
+#infiniteProductGrid .ebay-product-card {
+    position: relative !important;
+    background: #ffffff !important;
+    overflow: visible !important;   
+    box-shadow: none !important;    
+    transform: none !important;     
+    z-index: 10 !important;          /* Standard depth positioning level below site header menus */
+    transition: none !important;
+}
+
+/* Elevate layout card visibility instantly upon trigger interaction */
+#infiniteProductGrid .ebay-product-card:hover {
+    z-index: 30 !important; 
+}
+
+/* 3. The Sharp-Cornered Floating Breakout Footer Box 
+      Set transition parameters to manage prompt entry execution but absolute instant exit visibility */
+#infiniteProductGrid .card-preview-footer {
+    position: absolute !important;   
+    top: 100% !important;            
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;  
+    
+    /* Request 1: Enforce perfect sharp corners on the container drops */
+    border-radius: 0px !important; 
+    
+    padding: 4px 12px 12px 12px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
+    
+    /* Request 2: Instant removal behavior logic */
+    display: block !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    z-index: 9999 !important;        
+    
+    /* NO TRANSITION HERE: Guarantees immediate absolute disappearance on mouse-leave */
+    transition: none !important; 
+}
+
+/* Smooth fade on mouse enter approach, but zero animation lag on exit */
+#infiniteProductGrid .ebay-product-card:hover .card-preview-footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: opacity 0.1s ease-in-out !important; /* Fast prompt fade-in only */
+}
+
+/* 4. Sharp Premium Black Rectangular Action Button */
+#infiniteProductGrid .see-preview-btn {
+    display: block !important;
+    width: 100% !important;
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    padding: 10px 0 !important;
+    border: none !important;
+    
+    /* Request 1: Strips away curves to provide completely sharp block edges */
+    border-radius: 0px !important; 
+    
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+    transition: background-color 0.1s ease !important;
+}
+
+#infiniteProductGrid .see-preview-btn:hover {
+    background-color: #2b2b2b !important;
+}
+/* ==========================================================================
+   FIXED LOCALIZATION STYLE ENGINE: SHIFT MENUS TO THE LEFT
+   ========================================================================== */
+
+/* ==========================================================================
+   COMPLETE LOCALIZATION DROPDOWN ENGINE (FIXED INLINE & LEFT-SHIFTED)
+   ========================================================================== */
+
+/* 1. PARENT ROW CONTAINER - Keeps LAN and CUR strictly side-by-side */
+.header-localization-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    vertical-align: middle !important;
+    gap: 12px !important;               /* Controls horizontal gap between LAN and CUR */
+    margin: 0 8px !important;
+}
+
+/* 2. DROPDOWN TRIGGER WRAPPER */
+.nav-dropdown-item {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    padding: 2px 4px !important;
+    user-select: none;
+}
+
+/* Restored original small font size matching your welcome text */
+.nav-dropdown-label {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    color: #666666 !important;
+}
+
+/* 3. CARET ICON - Matches category chevron style and sizing */
+.dropdown-caret-icon {
+    color: #666666 !important;
+    margin-left: 2px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    transition: transform 0.2s ease !important;
+}
+
+/* Rotates the caret smoothly and colors it red when open */
+.nav-dropdown-item.dropdown-open-active .dropdown-caret-icon {
+    transform: rotate(180deg) !important;
+    color: #ff4747 !important;
+}
+
+/* 4. THE DROPDOWN PANELS - Right-anchored to shift leftward upon click */
+.localization-menu.alignment-left {
+    position: absolute !important;
+    top: 100% !important;
+    
+    /* Anchors menu panel's right edge flush with the caret to extend leftward */
+    left: auto !important; 
+    right: 0 !important; 
+    
+    transform: translateY(4px) !important;
+    min-width: 130px !important;         /* Expanded width matching screenshots */
+    background: #ffffff !important;
+    border: 1px solid #e5e5e5 !important;
+    padding: 4px 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    border-radius: 0px !important;       /* Clean square corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+    z-index: 999999 !important;
+    display: none !important;            /* Controlled via JavaScript click engine */
+}
+
+/* Toggle visibility modifier class */
+.localization-menu.alignment-left.show-menu-click {
+    display: block !important;
+}
+
+/* 5. INDIVIDUAL DROPDOWN LIST ITEMS */
+.localization-menu.alignment-left li {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;                 /* Symmetrical spacing between flag and text */
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    color: #333333 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+}
+
+/* Hover background change state */
+.localization-menu.alignment-left li:hover {
+    background-color: #f5f5f5 !important;
+    color: #ff4747 !important;
+}
+
+/* Active selected preference highlight text state */
+.localization-menu.alignment-left li.active {
+    font-weight: 600 !important;
+    color: #ff4747 !important;
+}
+
+/* 6. VECTOR FLAG CONSTRAINTS */
+.country-flag-icon {
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    vertical-align: middle !important;
+}
+/* ==========================================================================
+   TOP BAR FAQS LINK STYLING
+   ========================================================================== */
+.top-faqs-link {
+    font-size: 12px !important;
+    color: #666666 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease, text-decoration 0.2s ease !important;
+}
+
+/* Hover state: changes color slightly and adds the underline */
+.top-faqs-link:hover {
+    color: #ff4747 !important; /* Matches your theme's red highlight color */
+    text-decoration: underline !important;
+}
+/* ==========================================================================
+   ISOLATED CLUSTER PANEL ENGINE (Electronics Section Only)
+   ========================================================================== */
+
+/* 1. Main Container for the Cluster */
+.promo-image-cluster {
+    display: flex !important;
+    position: relative !important;
+    flex: 2.5 !important; /* Expanded to give the larger images plenty of horizontal room */
+    height: 180px !important; /* Increased container height to support taller cards */          
+    align-self: center !important;
+    margin-left: 50px !important;
+}
+
+/* 2. Larger & Wider Image Box Setup */
+.cluster-img-box {
+    position: absolute !important;
+    /* Increased both width and height as requested */
+    width: 165px !important;
+    height: 185px !important; 
+    border-radius: 16px !important; 
+    overflow: hidden !important;       
+    background-color: #f8fafc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); 
+    border: none !important; 
+    transition: transform 0.3s ease, z-index 0.3s ease !important;
+}
+
+/* 3. Widely Spaced Overlapping Layout (Shifted Right-Most Image) */
+/* Left Image (Yellow Tech Set) - Bottom Layer */
+.cluster-img-box:nth-child(1) {
+    left: -25px !important;    
+    top: 5px !important;
+    transform: rotate(-7deg) !important;
+    z-index: 1 !important;
+}
+
+/* Center Image (JBL Speaker) - Middle Layer */
+.cluster-img-box:nth-child(2) {
+    left: 110px !important;    
+    top: -18px !important;  
+    transform: rotate(5deg) !important;
+    z-index: 2 !important;
+}
+
+/* Right Image (Camera Guy) - Top Layer */
+.cluster-img-box:nth-child(3) {
+    /* Pushed to the right to sit flush with the blue banner border */
+    left: 265px !important;    
+    top: 10px !important;
+    transform: rotate(-3deg) !important;
+    z-index: 3 !important;
+}
+
+/* 4. Core Image Display & Interaction Setup */
+.cluster-img-box img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;      
+    object-position: center !important;
+}
+
+/* Brings the hovered card temporarily to the front */
+.cluster-img-box:hover {
+    z-index: 10 !important;
+}
+
+.cluster-img-box:hover img {
+    transform: scale(1.05) !important;
 }
