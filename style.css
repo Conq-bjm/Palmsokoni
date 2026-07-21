@@ -3633,3 +3633,218 @@ body.dark-mode .full-watchlist-btn {
 .cluster-img-box:hover img {
     transform: scale(1.05) !important;
 }
+/* 1. New styling for the Motors banner */
+.mega-right-col-motors {
+    /* Solid black background */
+    background: #000000 !important;
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start !important;
+    overflow: hidden;
+    min-height: 250px;
+    box-sizing: border-box;
+    margin-right: -20px !important;
+}
+
+/* 2. Style the text within the Motors banner */
+.mega-right-col-motors h2 {
+    color: #ffffff !important; /* White title */
+}
+
+.mega-right-col-motors p {
+    color: #cccccc !important; /* Light gray text for contrast */
+}
+
+/* 3. Ensure the button stands out (maybe keep it blue or make it white/gray) */
+.mega-right-col-motors .promo-btn {
+    background-color: #ffffff;
+    color: #000000 !important;
+}
+/* Fashion Dropdown - Full Red Background */
+.mega-right-col-fashion {
+    background: #d32f2f !important; /* A strong, vibrant red */
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* This helps center the text and image vertically */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Force text and buttons to be white/visible */
+.mega-right-col-fashion h2 {
+    color: #ffffff !important;
+}
+
+.mega-right-col-fashion p {
+    color: #ffffff !important;
+    opacity: 0.9;
+}
+
+.mega-right-col-fashion .promo-btn {
+    background-color: #ffffff !important;
+    color: #d32f2f !important; /* Red text on white button looks great */
+}
+/* Foods & Groceries Dropdown - White Background Style */
+.mega-right-col-groceries {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important; /* Optional subtle border to define the white box */
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Dark text for white background */
+.mega-right-col-groceries h2 {
+    color: #1f2937 !important;
+}
+
+.mega-right-col-groceries p {
+    color: #4b5563 !important;
+}
+
+/* Call to action button styling for groceries */
+.mega-right-col-groceries .promo-btn {
+    background-color: #10b981 !important; /* Fresh green button fits groceries well */
+    color: #ffffff !important;
+}
+/* Sports Dropdown - Orange Background Style */
+.mega-right-col-sports {
+    background:#065f46 !important; /* Vibrant orange background */
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* White text for visibility on orange background */
+.mega-right-col-sports h2 {
+    color: #ffffff !important;
+}
+
+.mega-right-col-sports p {
+    color: #ffffff !important;
+    opacity: 0.95;
+}
+
+/* Call to action button styling for sports */
+.mega-right-col-sports .promo-btn {
+    background-color: #ffffff !important;
+    color:#065f46 !important; /* Orange text on white button */
+}
+/* Health & Beauty Dropdown - Pink Background Style */
+.mega-right-col-health {
+    background: #db2777 !important; /* Vibrant pink background */
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* White text for visibility on pink background */
+.mega-right-col-health h2 {
+    color: #ffffff !important;
+}
+
+.mega-right-col-health p {
+    color: #ffffff !important;
+    opacity: 0.95;
+}
+
+/* Call to action button styling for health & beauty */
+.mega-right-col-health .promo-btn {
+    background-color: #ffffff !important;
+    color: #db2777 !important; /* Pink text on white button */
+}
+/* Industrial Equipment Dropdown - Yellow Background Style */
+.mega-right-col-industrial {
+    background: #ffc20c !important; /* Vibrant industrial yellow background */
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Dark text for strong contrast and legibility on yellow background */
+.mega-right-col-industrial h2 {
+    color: #1f2937 !important;
+}
+
+.mega-right-col-industrial p {
+    color: #1f2937 !important;
+    opacity: 0.9;
+}
+
+/* Call to action button styling for industrial equipment */
+.mega-right-col-industrial .promo-btn {
+    background-color: #1f2937 !important; /* Dark charcoal button for a robust look */
+    color: #ffffff !important;
+}
+/* Home & Garden Dropdown - Grass Green Background Style */
+.mega-right-col-home {
+    background: #16a34a !important; /* Fresh grass green background */
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* White text for contrast and legibility on green background */
+.mega-right-col-home h2 {
+    color: #ffffff !important;
+}
+
+.mega-right-col-home p {
+    color: #ffffff !important;
+    opacity: 0.95;
+}
+
+/* Call to action button styling for home & garden */
+.mega-right-col-home .promo-btn {
+    background-color: #ffffff !important;
+    color: #16a34a !important; /* Green text on white button */
+}
+/* Sell Dropdown - Teal/Cyan Background Style */
+.mega-right-col-sell {
+    background: #0ea5e9 !important; /* Professional selling portal teal */
+    border-radius: 14px;
+    padding: 24px 25px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.mega-right-col-sell h2 {
+    color: #ffffff !important;
+}
+
+.mega-right-col-sell p {
+    color: #ffffff !important;
+    opacity: 0.95;
+}
+
+.mega-right-col-sell .promo-btn {
+    background-color: #ffffff !important;
+    color: #0ea5e9 !important;
+}
