@@ -149,17 +149,19 @@
 
 </div>
     
-    <div class="search-container">
-        <input type="text" placeholder="Search for anything...">
-        <div class="search-tools">
-            <button class="camera-btn" id="openCameraSearch" title="Search by image">
-                <i data-lucide="camera"></i>
-            </button>
-            <div class="search-icon-box">
-                <i data-lucide="search"></i>
-            </div>
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for anything..." autocomplete="off">
+    <div class="search-tools">
+        <button class="camera-btn" id="openCameraSearch" title="Search by image">
+            <i data-lucide="camera"></i>
+        </button>
+        <div class="search-icon-box" id="searchSubmitBtn">
+            <i data-lucide="search"></i>
         </div>
     </div>
+    <!-- ADD THIS DROPDOWN CONTAINER -->
+    <div id="searchSuggestions" class="search-suggestions-dropdown" style="display: none;"></div>
+</div>
 
 <div class="header-actions">
         <div class="action-item-dropdown-container" id="accountMenuWrapper">
@@ -328,7 +330,7 @@
         </div>
 
 <div class="nav-item-dropdown">
-    <a href="#" class="electronics-trigger">Motors</a>
+    <a href="motors.html" class="electronics-trigger">Motors</a>
     <div class="mega-dropdown-menu">
         <div class="mega-dropdown-container">
             <div class="mega-left-col">
@@ -382,7 +384,7 @@
 </div>
 
         <div class="nav-item-dropdown">
-    <a href="#" class="electronics-trigger">Fashion</a>
+    <a href="fashion.html" class="electronics-trigger">Fashion</a>
     <div class="mega-dropdown-menu">
         <div class="mega-dropdown-container">
             <div class="mega-left-col">
@@ -435,7 +437,7 @@
 </div>
 
 <div class="nav-item-dropdown">
-    <a href="#" class="electronics-trigger">Foods & Groceries</a>
+    <a href="foagr.html" class="electronics-trigger">Foods & Groceries</a>
     <div class="mega-dropdown-menu">
         <div class="mega-dropdown-container">
             <div class="mega-left-col">
@@ -485,7 +487,7 @@
 </div>
 
 <div class="nav-item-dropdown">
-            <a href="#" class="electronics-trigger">Health & Beauty</a>
+            <a href="heabeu.html" class="electronics-trigger">Health & Beauty</a>
             <div class="mega-dropdown-menu">
                 <div class="mega-dropdown-container">
                     <div class="mega-left-col">
@@ -536,7 +538,7 @@
 
 
  <div class="nav-item-dropdown">
-            <a href="#" class="electronics-trigger">Industrial equipment</a>
+            <a href="industry.html" class="electronics-trigger">Industrial equipment</a>
             <div class="mega-dropdown-menu">
                 <div class="mega-dropdown-container">
                     <div class="mega-left-col">
@@ -586,7 +588,7 @@
         </div>
 
  <div class="nav-item-dropdown">
-            <a href="#" class="electronics-trigger">Home & Garden</a>
+            <a href="hoag.html" class="electronics-trigger">Home & Garden</a>
             <div class="mega-dropdown-menu">
                 <div class="mega-dropdown-container">
                     <div class="mega-left-col">
@@ -663,7 +665,7 @@
                     </div>
                     <div class="mega-right-col mega-right-col-sell">
                         <div class="promo-info">
-                            <h2>Start selling on PalmSokoni</h2>
+                            <h2>Selling on PalmSokoni</h2>
                             <p>Everything you need to succeed as a seller.</p>
                             <a href="#" class="promo-btn">Become a seller</a>
                         </div>

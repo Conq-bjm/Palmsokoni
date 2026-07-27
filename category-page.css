@@ -41,17 +41,20 @@
    3. Left Column Sidebar Configurations (Updated to Match eBay)
    ========================================================================== */
 .category-sidebar {
-    width: 230px; /* Kept exactly at your original 180px width */
+    width: 230px; 
     flex-shrink: 0;
-    margin-top: 15px;
     
-    /* Scrollbar Core Configuration */
-    max-height: 450px;          /* Limits sidebar height so the scrollbar triggers */
-    overflow-y: auto;           /* Turns on vertical scrolling */
-    overflow-x: hidden;         /* Prevents horizontal stretching or shifting */
-    margin-right: -50px;
-    padding-right: 20px;         /* Keeps sidebar items from touching the scrollbar */
-    box-sizing: border-box;     /* Ensures padding doesn't widen the 180px container */
+    /* Sticky Positioning Core - Adjusted top offset to catch right at "Shop by category" */
+    position: sticky;
+    top: 75px;                    /* Adjust this value (100px - 120px) based on your header's exact height */
+    
+    /* Scrollbar Core Configuration - Fills the exact screen space from top offset down to the bottom */
+    max-height: calc(100vh - 75px); /* Keeps the container inside the viewport with room for the bottom margin */
+    overflow-y: auto;              /* Turns on vertical scrolling */
+    overflow-x: hidden;            /* Prevents horizontal stretching or shifting */
+    
+    padding-right: 20px;           /* Keeps sidebar items from touching the scrollbar */
+    box-sizing: border-box;        /* Ensures padding doesn't widen the container */
 }
 
 /* ==========================================================================
@@ -60,7 +63,7 @@
 
 /* 1. Sets the width of the scrollbar */
 .category-sidebar::-webkit-scrollbar {
-    width: 10px;
+    width: 9px;
 }
 
 /* 2. Keeps the track background invisible */
@@ -72,6 +75,7 @@
 .category-sidebar::-webkit-scrollbar-thumb {
     background: #d3d3d3; 
     border-radius: 10px;
+    max-height: 15px;
 }
 
 /* 4. Subtle hover effect */
@@ -167,8 +171,8 @@
     gap: 0px; /* Changed from 20px to 0px to completely remove the gaps between cards */
     padding-bottom: 60px;
     max-width: 930px;          /* Restricts product cards to a tighter, compact width */
-    margin-right: auto;
-    margin-left: 40px !important;        /* Pulls the cards to the left, dumping all remaining empty space to the far right */
+    margin-right: 20px !important;       /* Pushes the cards to the right, leaving a small margin on the right side */
+    margin-left: 0px !important;        /* Pulls the cards to the left, dumping all remaining empty space to the far right */
     align-items: start !important;
 }
 
@@ -356,8 +360,8 @@
 /* 1. Enable and size the scrollbar buttons */
 .category-sidebar::-webkit-scrollbar-button:single-button {
     display: block !important;
-    height: 12px;
-    background-size: 8px;
+    height: 16px;
+    background-size: 10px;
     background-repeat: no-repeat;
     background-position: center;
 }

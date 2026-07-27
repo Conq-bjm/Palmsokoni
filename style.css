@@ -255,13 +255,14 @@ body.dark-mode {
     padding: 2px 2px 2px 20px;
     flex: 0 1 700px;
     margin-left: 20px;
+    position: relative; /* Needed for the suggestions dropdown to position correctly */
 }
 
 .search-container input {
     border: none;
     outline: none;
     width: 100%;
-    font-size: 14px;
+    font-size: 15px;
     background: transparent;
 }
 
@@ -269,6 +270,57 @@ body.dark-mode {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+/* Suggestions Dropdown Box */
+.search-suggestions-dropdown {
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    padding: 8px 0;
+    border: 1px solid #eaeaea;
+}
+
+/* Individual Suggestion Item */
+.suggestion-item {
+    padding: 10px 18px;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.15s ease;
+}
+
+.suggestion-item i,
+.suggestion-item svg {
+    color: #050505;
+    width: 16px !important;  /* Reduced size */
+    height: 16px !important; /* Reduced size */
+    font-size: 12px !important;
+}
+
+.suggestion-item:hover {
+    background-color: #f5f5f5;
+    color: #ff6600; /* PalmSokoni brand orange accent */
+}
+
+.suggestion-item:hover i {
+    color: #ff6600;
+}
+
+/* "No results found" state styling */
+.no-results-item {
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #777777;
+    text-align: center;
+    font-style: italic;
 }
 
 .camera-btn {
@@ -2531,7 +2583,7 @@ body.dark-mode .top-bar a:hover {
 
 /* Sell on PalmSokoni Button Link Adjustment */
 body.dark-mode .sell-btn {
-    color: #cbd5e1 !important;
+    color: #cbd6e1 !important;
 }
 
 /* Dark Mode Toggle Button Core Look */

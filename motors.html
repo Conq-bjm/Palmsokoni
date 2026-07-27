@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronics | PalmSokoni</title>
+    <title>Motors | PalmSokoni</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="category-page.css">
@@ -257,9 +257,9 @@
     </header>
 <div class="category-header-top">
     <nav class="breadcrumbs">
-        <a href="#">PalmSokoni</a> &gt; <span class="current">Electronics</span>
+        <a href="#">PalmSokoni</a> &gt; <span class="current">Motors</span>
     </nav>
-    <h1 class="page-title">Electronics</h1>
+    <h1 class="page-title">Motors</h1>
 </div>
 
 <div class="category-page-container">
@@ -269,12 +269,12 @@
     <div class="sidebar-section">
         <h3>Shop by category</h3>
         <ul class="sidebar-links">
-            <li><a href="#" class="active">Cameras & Photo</a></li>
-            <li><a href="#">Cell Phones & Accessories</a></li>
-            <li><a href="#">Computers/Tablets & Network</a></li>
-            <li><a href="#">Portable Audio & Headphones</a></li>
-            <li><a href="#">TV, Video & Home Audio</a></li>
-            <li><a href="#">Surveillance & Smart Home</a></li>
+            <li><a href="#" class="active">Car Parts & Accessories</a></li>
+            <li><a href="#">Motorcycle Parts & Gear</a></li>
+            <li><a href="#">Tires, Wheels & Hubs</a></li>
+            <li><a href="#">Car Electronics & GPS</a></li>
+            <li><a href="#">Tools & Diagnostic Equipment</a></li>
+            <li><a href="#">Oils, Fluids & Lubricants</a></li>
         </ul>
     </div>
 
@@ -284,43 +284,105 @@
         <!-- Filter 1: Condition -->
         <div class="sidebar-section filter-group">
             <h3>Condition</h3>
-            <label class="checkbox-container">
-                <input type="checkbox"> New
-            </label>
-            <label class="checkbox-container">
-                <input type="checkbox"> Open Box
-            </label>
-            <label class="checkbox-container">
-                <input type="checkbox"> Used
-            </label>
+            <label class="checkbox-container"><input type="checkbox"> New</label>
+            <label class="checkbox-container"><input type="checkbox"> Remanufactured</label>
+            <label class="checkbox-container"><input type="checkbox"> Used</label>
+            <label class="checkbox-container"><input type="checkbox"> For parts or not working</label>
         </div>
 
-        <!-- Filter 2: Deals & Discounts -->
+        <!-- Filter 2: Placement on Vehicle -->
         <div class="sidebar-section filter-group">
-            <h3>Deals & discounts</h3>
-            <label class="checkbox-container">
-                <input type="checkbox"> Sale
-            </label>
-            <label class="checkbox-container">
-                <input type="checkbox"> Free shipping
-            </label>
+            <h3>Placement on Vehicle</h3>
+            <label class="checkbox-container"><input type="checkbox"> Front</label>
+            <label class="checkbox-container"><input type="checkbox"> Rear</label>
+            <label class="checkbox-container"><input type="checkbox"> Left</label>
+            <label class="checkbox-container"><input type="checkbox"> Right</label>
+            <label class="checkbox-container"><input type="checkbox"> Upper</label>
+            <label class="checkbox-container"><input type="checkbox"> Lower</label>
         </div>
 
         <!-- Filter 3: Brand -->
         <div class="sidebar-section filter-group">
             <h3>Brand</h3>
-            <label class="checkbox-container">
-                <input type="checkbox"> Sony
-            </label>
-            <label class="checkbox-container">
-                <input type="checkbox"> Apple
-            </label>
-            <label class="checkbox-container">
-                <input type="checkbox"> Samsung
-            </label>
-            <label class="checkbox-container">
-                <input type="checkbox"> HP
-            </label>
+            <label class="checkbox-container"><input type="checkbox"> Bosch</label>
+            <label class="checkbox-container"><input type="checkbox"> Toyota Genuine</label>
+            <label class="checkbox-container"><input type="checkbox"> Brembo</label>
+            <label class="checkbox-container"><input type="checkbox"> Denso</label>
+            <label class="checkbox-container"><input type="checkbox"> ACDelco</label>
+            <label class="checkbox-container"><input type="checkbox"> NGK</label>
+        </div>
+
+        <!-- Filter 4: Performance Part -->
+        <div class="sidebar-section filter-group">
+            <h3>Performance Part</h3>
+            <label class="checkbox-container"><input type="checkbox"> Yes</label>
+            <label class="checkbox-container"><input type="checkbox"> No</label>
+        </div>
+
+        <!-- Filter 5: Universal Fitment -->
+        <div class="sidebar-section filter-group">
+            <h3>Universal Fitment</h3>
+            <label class="checkbox-container"><input type="checkbox"> Yes</label>
+            <label class="checkbox-container"><input type="checkbox"> No</label>
+        </div>
+
+        <!-- Filter 6: Vintage Car Part -->
+        <div class="sidebar-section filter-group">
+            <h3>Vintage Car Part</h3>
+            <label class="checkbox-container"><input type="checkbox"> Yes</label>
+            <label class="checkbox-container"><input type="checkbox"> No</label>
+        </div>
+
+        <!-- Filter 7: Manufacturer Warranty -->
+        <div class="sidebar-section filter-group">
+            <h3>Manufacturer Warranty</h3>
+            <label class="checkbox-container"><input type="checkbox"> 1 Year</label>
+            <label class="checkbox-container"><input type="checkbox"> 2 Years</label>
+            <label class="checkbox-container"><input type="checkbox"> 3 Years</label>
+            <label class="checkbox-container"><input type="checkbox"> Lifetime</label>
+        </div>
+
+        <!-- Filter 8: Country/Region of Manufacture -->
+        <div class="sidebar-section filter-group">
+            <h3>Country/Region of Manufacture</h3>
+            <label class="checkbox-container"><input type="checkbox"> Japan</label>
+            <label class="checkbox-container"><input type="checkbox"> Germany</label>
+            <label class="checkbox-container"><input type="checkbox"> United States</label>
+            <label class="checkbox-container"><input type="checkbox"> United Kingdom</label>
+        </div>
+
+        <!-- Filter 9: Material -->
+        <div class="sidebar-section filter-group">
+            <h3>Material</h3>
+            <label class="checkbox-container"><input type="checkbox"> Aluminum</label>
+            <label class="checkbox-container"><input type="checkbox"> Steel</label>
+            <label class="checkbox-container"><input type="checkbox"> Carbon Fiber</label>
+            <label class="checkbox-container"><input type="checkbox"> Plastic</label>
+        </div>
+
+        <!-- Filter 10: Finish -->
+        <div class="sidebar-section filter-group">
+            <h3>Finish</h3>
+            <label class="checkbox-container"><input type="checkbox"> Polished</label>
+            <label class="checkbox-container"><input type="checkbox"> Matte</label>
+            <label class="checkbox-container"><input type="checkbox"> Painted</label>
+            <label class="checkbox-container"><input type="checkbox"> Chrome</label>
+        </div>
+
+        <!-- Filter 11: Deals & Discounts -->
+        <div class="sidebar-section filter-group">
+            <h3>Deals & Discounts</h3>
+            <label class="checkbox-container"><input type="checkbox"> Sale</label>
+            <label class="checkbox-container"><input type="checkbox"> Free shipping</label>
+            <label class="checkbox-container"><input type="checkbox"> Top Rated Seller</label>
+        </div>
+
+        <!-- Filter 12: Item Location -->
+        <div class="sidebar-section filter-group">
+            <h3>Item Location</h3>
+            <label class="checkbox-container"><input type="checkbox"> Tanzania</label>
+            <label class="checkbox-container"><input type="checkbox"> East Africa</label>
+            <label class="checkbox-container"><input type="checkbox"> Worldwide</label>
         </div>
 
     </div>

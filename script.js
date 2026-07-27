@@ -829,3 +829,116 @@ document.addEventListener("DOMContentLoaded", () => {
         closeAllLocalizationMenus();
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+    const suggestionsDropdown = document.getElementById('searchSuggestions');
+
+    if (!searchInput || !suggestionsDropdown) return;
+
+    // Sample keywords/products database for real-time searching and suggestions
+    const searchDatabase = [
+        "Smart Fitness Watch with Heart Rate Monitor",
+        "Premium Wireless Bluetooth Headphones Noise Cancelling",
+        "Ultra Bass Portable Bluetooth Speaker Waterproof",
+        "4K Ultra HD Action Camera WiFi Waterproof",
+        "Ergonomic Wired Gaming Mouse RGB Backlit",
+        "Smart Watches 2026",
+        "Smart Watches Man",
+        "Smart Watches For Woman",
+        "Smart Watch iPhone",
+        "Bluetooth Earbuds Wireless",
+        "Wireless Charging Pad",
+        "Running Shoes",
+        "Cotton T-Shirt"
+    ];
+
+    // Listen to keystrokes as the user types
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+
+        if (query.length === 0) {
+            suggestionsDropdown.style.display = 'none';
+            suggestionsDropdown.innerHTML = '';
+            return;
+        }
+
+        // STRICT PREFIX FILTER: Only match items that START with the typed query letters
+        const matches = searchDatabase.filter(item => item.toLowerCase().startsWith(query));
+
+        if (matches.length > 0) {
+            // Render matching suggestions with a search icon
+            suggestionsDropdown.innerHTML = matches.map(match => `
+                <div class="suggestion-item">
+                    <i data-lucide="search"></i>
+                    <span>${match}</span>
+                </div>
+            `).join('');
+            
+            suggestionsDropdown.style.display = 'block';
+        } else {
+            // Render "No results found" message if nothing starts with the query
+            suggestionsDropdown.innerHTML = `
+                <div class="no-results-item">
+                    No results found
+                </div>
+            `;
+            suggestionsDropdown.style.display = 'block';
+        }
+
+        // Refresh icons if using Lucide icon library
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Add click behavior to select a suggestion
+        document.querySelectorAll('.suggestion-item').forEach(el => {
+            el.addEventListener('click', () => {
+                const selectedText = el.querySelector('span').textContent;
+                searchInput.value = selectedText;
+                suggestionsDropdown.style.display = 'none';
+                triggerPageSearch(selectedText);
+            });
+        });
+    });
+
+    // Hide suggestions dropdown when clicking anywhere else on the page
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container')) {
+            suggestionsDropdown.style.display = 'none';
+        }
+    });
+
+    // Trigger search when clicking the search icon box
+    if (searchSubmitBtn) {
+        searchSubmitBtn.addEventListener('click', () => {
+            triggerPageSearch(searchInput.value);
+            suggestionsDropdown.style.display = 'none';
+        });
+    }
+
+    // Trigger search on pressing the Enter key
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            triggerPageSearch(searchInput.value);
+            suggestionsDropdown.style.display = 'none';
+        }
+    });
+
+    // Function to filter main product cards on your page based on the search query
+    function triggerPageSearch(query) {
+        const searchTerm = query.toLowerCase().trim();
+        const productCards = document.querySelectorAll('.product-card, .swiper-slide, [class*="product"]');
+
+        productCards.forEach(card => {
+            const titleEl = card.querySelector('h3, h4, .product-title, p');
+            const titleText = titleEl ? titleEl.textContent.toLowerCase() : '';
+
+            if (searchTerm === '' || titleText.includes(searchTerm)) {
+                card.style.display = ''; // Show item
+            } else {
+                card.style.display = 'none'; // Hide item
+            }
+        });
+    }
+});
