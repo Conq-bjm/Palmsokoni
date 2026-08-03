@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell on PalmSokoni | Vendor Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-left">
+            <span class="top-bar-welcome">
+                Hi <a href="#" class="top-auth-link">Sign in</a> or <a href="#" class="top-auth-link">register</a>
+            </span>
+
+            <div class="header-localization-nav">
+                <div class="nav-dropdown-item SelectorLang" id="langDropdownTrigger">
+                    <span class="nav-dropdown-label">LAN</span>
+                    <svg class="dropdown-caret-icon" viewBox="0 0 24 24" width="14" height="14">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="currentColor"/>
+                    </svg>
+                    
+                    <ul class="localization-menu alignment-left">
+                        <li data-lang="en" class="active">
+                            <svg class="country-flag-icon" viewBox="0 0 60 30" width="16" height="10">
+                                <clipPath id="a"><path d="M0 0h60v30H0z"/></clipPath>
+                                <g clip-path="url(#a)">
+                                    <path d="M0 0h60v30H0z" fill="#012169"/>
+                                    <path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/>
+                                    <path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" stroke-width="4"/>
+                                    <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+                                    <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+                                </g>
+                            </svg>
+                            <span>English</span>
+                        </li>
+                        <li data-lang="sw">
+                            <svg class="country-flag-icon" viewBox="0 0 3 2" width="16" height="11">
+                                <path d="M0 0h3v2H0z" fill="#1eb53a"/>
+                                <path d="M0 2l3-2H0z" fill="#00a3dd"/>
+                                <path d="M0 2L3 0" stroke="#fcd116" stroke-width=".6"/>
+                                <path d="M0 2L3 0" stroke="#000" stroke-width=".4"/>
+                            </svg>
+                            <span>Swahili</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-dropdown-item SelectorCur" id="curDropdownTrigger">
+                    <span class="nav-dropdown-label">CUR</span>
+                    <svg class="dropdown-caret-icon" viewBox="0 0 24 24" width="14" height="14">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="currentColor"/>
+                    </svg>
+                    
+                    <ul class="localization-menu alignment-left">
+                        <li data-currency="TZS" class="active"><span>TZS (Tanzanian Shilling)</span></li>
+                        <li data-currency="USD"><span>USD (US Dollar)</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="#" class="help-center-link">Help & Contacts</a>
+            <a href="#" class="top-faqs-link">FAQs</a>
+        </div>
+        
+        <div class="top-right">
+            <a href="#" class="sell-btn">Sell on PalmSokoni</a>
+            <button class="dark-mode-toggle"><i data-lucide="moon"></i></button>
+        </div>
+    </div>
+
+    <header class="header-main">
+        <div class="header-left-group">
+            <a href="index.html" class="logo">PalmSokoni</a>
+        
+            <div class="shop-by-cat" id="shopByCategoryTrigger">
+                <div class="cat-text">
+                    <span>Shop by</span>
+                    <span>category</span>
+                </div>
+                <i data-lucide="chevron-down" class="cat-arrow"></i>
+            </div>
+
+            <div class="ebay-mega-dropdown" id="ebayMegaDropdown">
+                <div class="mega-dropdown-inner">
+                    
+                    <div class="mega-column">
+                        <h3 class="main-cat-title"><a href="motors.html">Motors</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Parts & accessories</a></li>
+                            <li><a href="#">Cars & trucks</a></li>
+                            <li><a href="#">Motorcycles</a></li>
+                            <li><a href="#">Other vehicles</a></li>
+                        </ul>
+
+                        <h3 class="main-cat-title"><a href="fashion.html">Clothing & Accessories</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Women's Clothing</a></li>
+                            <li><a href="#">Men's Clothing</a></li>
+                            <li><a href="#">Handbags & Purses</a></li>
+                            <li><a href="#">Collectible Sneakers</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mega-column">
+                        <h3 class="main-cat-title"><a href="electronics.html">Electronics</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Computers & Tablets</a></li>
+                            <li><a href="#">Cell Phones & Accessories</a></li>
+                            <li><a href="#">Video Games & Consoles</a></li>
+                            <li><a href="#">Cameras & Photo</a></li>
+                        </ul>
+
+                        <h3 class="main-cat-title"><a href="industry.html">Business & Industrial</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Heavy Equipment Parts</a></li>
+                            <li><a href="#">Restaurant & Food Service</a></li>
+                            <li><a href="#">Test & Inspection Equipment</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mega-column">
+                        <h3 class="main-cat-title"><a href="foagr.html">Collectibles & Art</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Sports Memorabilia</a></li>
+                            <li><a href="#">Trading Cards</a></li>
+                            <li><a href="#">Coins & Paper Money</a></li>
+                        </ul>
+
+                        <h3 class="main-cat-title"><a href="hoag.html">Home & Garden</a></h3>
+                        <ul class="sub-cat-list">
+                            <li><a href="#">Tools & Workshop Equipment</a></li>
+                            <li><a href="#">Kitchen, Dining & Bar</a></li>
+                            <li><a href="#">Yard, Garden & Outdoor Living</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for anything..." autocomplete="off">
+    <div class="search-tools">
+        <button class="camera-btn" id="openCameraSearch" title="Search by image">
+            <i data-lucide="camera"></i>
+        </button>
+        <div class="search-icon-box" id="searchSubmitBtn">
+            <i data-lucide="search"></i>
+        </div>
+    </div>
+    <!-- ADD THIS DROPDOWN CONTAINER -->
+    <div id="searchSuggestions" class="search-suggestions-dropdown" style="display: none;"></div>
+</div>
+
+        <div class="header-actions">
+            
+            <div class="action-item-dropdown-container" id="accountMenuWrapper">
+                <a href="#" class="action-item" id="accountDropdownTrigger">
+                    <i data-lucide="user"></i>
+                </a>
+
+                <div class="account-dropdown-card" id="accountDropdownCard">
+                    <div class="dropdown-user-profile-header">
+                        <div class="user-avatar-circle">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="user-greeting-meta">
+                            <h4>Welcome</h4>
+                            <a href="signin.html" target="_blank" class="signin-button-link">Sign In / Register</a>
+                        </div>
+                    </div>
+
+                    <ul class="dropdown-links-list">
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">My Orders</a></li>
+                        <li><a href="#">Messages</a></li>
+                        <li><a href="#">Watchlist</a></li>
+                        <li><a href="#">Payments & Wallet</a></li>
+                        <li><a href="#">Selling</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Sign Out</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="action-item watchlist-dropdown-wrapper" id="watchlistWrapper">
+                <a href="#" class="watchlist-trigger-link" id="watchlistTrigger">
+                    <i data-lucide="heart"></i>
+                    <span class="watchlist-badge-count" id="watchlistBadge" style="display: none;">0</span> 
+                </a>
+
+                <div class="watchlist-dropdown-panel" id="watchlistPanel">
+                    <div class="watchlist-state-empty active" id="watchlistEmptyState">
+                        <div class="empty-state-icon">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <h3>Your watchlist is empty</h3>
+                        <p>Save items you're keeping an eye on here, and we'll track price changes or updates for you.</p>
+                        <a href="#" class="watchlist-empty-cta">Start shopping</a>
+                    </div>
+
+                    <div class="watchlist-state-populated" id="watchlistPopulatedState">
+                        <div class="watchlist-panel-header">
+                            <h3>Watchlist Items</h3>
+                            <a href="#" class="view-all-link">View all</a>
+                        </div>
+                        <ul class="watchlist-items-list" id="watchlistItemsList"></ul>
+                        <div class="watchlist-panel-footer">
+                            <a href="#" class="full-watchlist-btn">Go to detailed watchlist</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ps-messages-module">
+                <a href="#" class="action-item" style="position: relative;">
+                    <i data-lucide="message-square"></i>
+                    <span class="ps-alibaba-msg-card">
+                        <span class="ps-msg-card-header">
+                            <h3>Messages</h3>
+                        </span>
+                        <span class="ps-msg-card-body">
+                            <span class="ps-msg-center-graphic">
+                                <img src="Images/messicon.jpg" alt="Messages" class="ps-custom-msg-icon">
+                            </span>
+                            <span class="ps-msg-center-text">Go to messenger for more</span>
+                        </span>
+                        <span class="ps-msg-card-footer" onclick="window.location.href='messages.html';">View More</span>
+                    </span>
+                </a>
+            </div>
+
+            <a href="#" class="action-item" id="cart-icon">
+                <div class="cart-wrapper">
+                    <i data-lucide="shopping-cart"></i>
+                </div>
+                <div class="ps-cart-dropdown" id="headerCartDropdown">
+                    <div class="ps-cart-dropdown-header">
+                        <span>Shopping Cart</span>
+                    </div>
+                    <div class="ps-dropdown-empty-state">
+                        <div class="ps-empty-cart-icon">
+                            <img src="Images/Category icons/cartic.jpg" alt="Empty Cart" class="ps-3d-cart-img">
+                        </div>
+                        <p class="ps-empty-text">Your cart is empty</p>
+                        <a href="cart.html" class="ps-go-to-cart-btn">Go to cart</a>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </header>
+
+    <div class="image-search-modal" id="imageSearchModal">
+    <div class="modal-content-card">
+        <button class="modal-close-btn" id="closeSearchModal">&times;</button>
+        <h3>Can't find the words? Search with an image</h3>
+        
+        <div class="upload-drop-zone" id="uploadDropZone">
+            <input type="file" id="imageFileInput" accept="image/*" hidden>
+            <div class="upload-zone-inside">
+                <div class="upload-icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                </div>
+                <p>Drag an image here or <span class="browse-link" id="browseFileLink">browse to a file</span></p>
+            </div>
+        </div>
+        
+        <div class="modal-divider">
+            <span>or</span>
+        </div>
+        
+        <div class="image-url-form">
+            <input type="text" id="imageUrlInput" placeholder="Paste an image link">
+            <button type="button" class="image-url-submit-btn" id="submitUrlBtn">Go</button>
+        </div>
+    </div>
+</div>
+<!-- Optional: Breadcrumbs and standard category header top -->
+<!-- Breadcrumbs -->
+    <div class="category-header-top">
+        <nav class="breadcrumbs">
+            <a href="index.html">PalmSokoni</a> &gt; <span class="current">Sell on PalmSokoni</span>
+        </nav>
+    </div>
+
+    <!-- Vendor Sub-Header Bar -->
+    <div class="vendor-subheader-bar">
+        <h1 class="vendor-page-heading">Selling</h1>
+        <div class="vendor-action-right">
+            <a href="register.html" class="start-selling-btn">Start Selling</a>
+        </div>
+    </div>
+
+    <!-- Full-Width Hero Section -->
+    <section class="vendor-hero">
+        <div class="vendor-hero-container">
+            <div class="vendor-hero-text">
+                <h2>Sell Your Products on PalmSokoni</h2>
+                <div class="hero-description-lines">
+        <span>Reach thousands of buyers across Tanzania, List your products easily,</span>
+        <span>manage orders seamlessly and, scale your sales today.</span>
+    </div>
+                <a href="#" class="vendor-cta-btn">Start Selling Free</a>
+            </div>
+            <div class="vendor-hero-card">
+                <h3>Why sell with us?</h3>
+                <ul class="vendor-benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Low commission fees</li>
+                    <li><i class="fas fa-check-circle"></i> Secure mobile money & bank payments</li>
+                    <li><i class="fas fa-check-circle"></i> Dedicated 24/7 seller support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Remaining Content (Steps Grid) -->
+    <main class="vendor-main-content">
+        <section class="vendor-steps">
+            <h3>How It Works</h3>
+            <div class="steps-grid">
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <h4>Create an Account</h4>
+                    <p>Sign up with your phone number or email in under 2 minutes.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <h4>List Your Products</h4>
+                    <p>Upload clear photos, set your price, and describe what you're selling.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">3</div>
+                    <h4>Start Earning</h4>
+                    <p>Receive orders, ship items, and get paid directly to your wallet.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>

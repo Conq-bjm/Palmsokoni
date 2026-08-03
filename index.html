@@ -19,7 +19,7 @@
 <div class="top-bar">
     <div class="top-left">
         <span class="top-bar-welcome">
-            Hi <a href="#" class="top-auth-link">Sign in</a> or <a href="#" class="top-auth-link">register</a>
+            Hi <a href="signin.html" class="top-auth-link">Sign in</a> or <a href="register.html" class="top-auth-link">register</a>
         </span>
 
         <div class="header-localization-nav">
@@ -73,7 +73,7 @@
     </div>
     
     <div class="top-right">
-        <a href="#" class="sell-btn">Sell on PalmSokoni</a>
+        <a href="vendor.html" class="sell-btn">Sell on PalmSokoni</a>
         <button class="dark-mode-toggle"><i data-lucide="moon"></i></button>
     </div>
 </div>
@@ -186,7 +186,7 @@
                     <li><a href="#">Messages</a></li>
                     <li><a href="#">Watchlist</a></li>
                     <li><a href="#">Payments & Wallet</a></li>
-                    <li><a href="#">Selling</a></li>
+                    <li><a href="vendor.html">Become a Seller</a></li>
                     <li><a href="#">Settings</a></li>
                     <li><a href="#">Help Center</a></li>
                     <li><a href="#">Sign Out</a></li>
@@ -265,7 +265,7 @@
                 <img src="Images/Category icons/cartic.jpg" alt="Empty Cart" class="ps-3d-cart-img">
             </div>
             <p class="ps-empty-text">Your cart is empty</p>
-            <a href="cart.html" class="ps-go-to-cart-btn">Go to cart</a>
+            <a href="cart.html" class="ps-go-to-cart-btn">Start Shopping</a>
         </div>
     </div>
 </a>
@@ -639,7 +639,7 @@
 
         <a href="#">Deals</a>
 <div class="nav-item-dropdown">
-            <a href="#">Sell</a>
+            <a href="vendor.html">Sell</a>
             <div class="mega-dropdown-menu">
                 <div class="mega-dropdown-container">
                     <div class="mega-left-col">
@@ -667,7 +667,7 @@
                         <div class="promo-info">
                             <h2>Selling on PalmSokoni</h2>
                             <p>Everything you need to succeed as a seller.</p>
-                            <a href="#" class="promo-btn">Become a seller</a>
+                            <a href="vendor.html" class="promo-btn">Become a seller</a>
                         </div>
                         <div class="promo-image-cluster">
                             <div class="cluster-img-box">
@@ -694,7 +694,7 @@
         <div class="hero-text-content">
             <h1>Shopping made simple</h1>
             <p>Browse millions of products from the palm of your hand, anytime, anywhere.</p>
-            <a href="#" class="shop-now-btn">Sign in </a>
+            <a href="signin.html" class="shop-now-btn">Sign in </a>
         </div>
         <div class="hero-image-container">
             <img src="Images/hero1.jpg" alt="Featured Product">
@@ -707,7 +707,7 @@
         <div class="hero-text-content white-text">
             <h1>Find what you love, together</h1>
             <p>Discover deals worth sharing with the people who matter most.</p>
-            <a href="#" class="shop-now-btn">Shop Now <i data-lucide="arrow-right"></i></a>
+            <a href="#trending-section" class="shop-now-btn">Shop Now</a>
         </div>
         <div class="hero-image-container">
             <img src="Images/hero2.jpg">
@@ -718,9 +718,9 @@
 <div class="slide centered-slide" style="background-color: #cd0112;">
     <div class="hero-content-wrapper">
         <div class="hero-text-content white-text">
-            <h1>Don't miss out on insider perks</h1>
+            <h1>Don't miss out on great deals</h1>
             <p>Early access to flash deals, member-only prices and free delivery.</p>
-            <a href="#" class="shop-now-btn">Shop All Deals <i data-lucide="arrow-right"></i></a>
+            <a href="#top-deals-section" class="shop-now-btn">View All Deals</a>
         </div>
         <div class="hero-image-container nike-zoom-container">
             <img src="Images/hero3.jpg">
@@ -732,8 +732,12 @@
     <div class="hero-content-wrapper">
         <div class="hero-text-content">
             <h1>Explore Latest Trends</h1>
-            <p>Quality products curated just for you. Upgrade your lifestyle today.</p>
-            <a href="#" class="shop-now-btn">Shop Now <i data-lucide="arrow-right"></i></a>
+            <p>Quality products designed just for you. Upgrade your standards today.</p>
+            <div class="hero-category-pills">
+                <a href="electronics.html" class="pill-electronics">Electronics &gt;</a>
+                <a href="fashion.html" class="pill-fashion">Fashion &gt;</a>
+                <a href="heabeu.html" class="pill-beauty">Health &amp; Beauty &gt;</a>
+            </div>
         </div>
         <div class="hero-image-container headphone-layout">
             <img src="Images/hero4.jpg">
@@ -1076,7 +1080,7 @@
     <div class="container">
         <div class="alibaba-deals-box">
             
-            <div class="deals-header-row">
+            <div class="deals-header-row" id="top-deals-section">
                 <div class="header-left-side">
                     <h2 class="deals-main-title">Top Deals</h2>
                     <p class="deals-sub-text">Score the lowest prices on PalmSokoni.com</p>
@@ -1119,7 +1123,7 @@
 <section class="main-market">
     <div class="container">
         
-        <div class="section-header-row">
+        <div class="section-header-row" id="trending-section">
             <h2 class="section-title">Trending Now</h2>
             <a href="#" class="deals-view-more">View more <i class="fas fa-angle-right"></i></a>
         </div>

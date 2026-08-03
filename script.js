@@ -174,9 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ==========================================================================
    INFINITE PRODUCTS GRID RENDER & REAL-TIME CART ENGINE
    ========================================================================== */
-/* ==========================================================================
-   INFINITE PRODUCTS GRID RENDER & REAL-TIME CART ENGINE
-   ========================================================================== */
 const mockProducts = [
     { title: "Smart Waterproof Fitness Tracker Watch with Heart Rate Monitor", price: "TSh 65,000", img: "Images/placeholder.png", rating: "4.9", sales: "5,000+ sold" },
     { title: "Premium Dynamic Noise Cancelling Earbuds Wireless Stereo", price: "TSh 55,000", img: "Images/placeholder.png", rating: "4.6", sales: "800+ sold" },
@@ -238,7 +235,7 @@ function appendMoreProducts() {
 
 function bindCartInteractionTriggers() {
     const cartButtons = document.querySelectorAll('.ps-image-cart-btn');
-    const cartBadge = document.querySelector('.cart-wrapper .badge, [class*="cart"] .badge, .fa-shopping-cart + span');
+    const cartBadge = document.querySelector('.cart-wrapper .badge, [class*="cart"] .badge, .fa-shopping-cart');
 
     cartButtons.forEach(button => {
         if (button.getAttribute('data-linked') === 'true') return;
@@ -246,21 +243,52 @@ function bindCartInteractionTriggers() {
 
         button.addEventListener('click', (event) => {
             event.preventDefault();
-            event.stopPropagation(); 
+            event.stopPropagation();
 
             currentCartCount++;
 
+            // 🚀 1. Show bold "+" sign temporarily inside the clicked cart button icon
+            const iconElement = button.querySelector('i');
+            if (iconElement) {
+                const originalClass = iconElement.className;
+                iconElement.className = "fas fa-plus";
+                iconElement.style.fontWeight = "900";
+                setTimeout(() => {
+                    iconElement.className = originalClass;
+                    iconElement.style.fontWeight = "";
+                }, 800);
+            }
+
+            // 🚀 2. Show floating "Added to Cart" popup notification near product image container
+            const productBox = button.closest('.market-img-box') || button.closest('.ebay-product-card');
+            if (productBox) {
+                // Ensure parent has relative positioning for absolute toast placement
+                productBox.style.position = 'relative';
+                
+                const toast = document.createElement('div');
+                toast.className = 'ps-added-toast';
+                toast.innerText = 'Added to Cart ✓';
+                productBox.appendChild(toast);
+
+                // Trigger smooth fade-in animation
+                setTimeout(() => toast.classList.add('show'), 10);
+
+                // Remove toast after a split second
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 200);
+                }, 1000);
+            }
+
+            // Update badge count animation if present
             if (cartBadge) {
-                cartBadge.textContent = currentCartCount;
                 cartBadge.style.transform = 'scale(1.4)';
                 cartBadge.style.transition = 'transform 0.1s ease-out';
-                
                 setTimeout(() => {
                     cartBadge.style.transform = 'scale(1)';
                 }, 120);
-            } else {
-                console.warn("Cart counter badge missing! Verify class name targets in header.");
             }
+
             if (typeof refreshCartDropdownView === "function") {
                 refreshCartDropdownView();
             }
@@ -461,22 +489,34 @@ function refreshCartDropdownView() {
     if (!dropdownContainer) return;
 
     if (currentCartCount > 0) {
+        // 🚀 Improved Populated Cart Menu Layout
         dropdownContainer.innerHTML = `
-            <div style="text-align: center; font-family: inherit; padding: 4px 0;">
-                <p style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #1e293b;">
-                    You have ${currentCartCount} item(s) in your cart
-                </p>
-                <a href="cart.html" class="ps-go-to-cart-btn" style="background-color: #ff6600; border-color: #ff6600; color: #ffffff;">
-                    Go to Checkout
+            <div class="ps-cart-dropdown-header">
+                <span>Shopping Cart (${currentCartCount})</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px 0; text-align: center; flex-grow: 1;">
+                <div style="background-color: #f8fafc; border-radius: 8px; width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #e2e8f0;">
+                    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #1e293b;">
+                        Item(s) added successfully!
+                    </p>
+                    <p style="margin: 4px 0 0 0; font-size: 12px; color: #64748b;">
+                        Total items in cart: <strong>${currentCartCount}</strong>
+                    </p>
+                </div>
+                <a href="cart.html" class="ps-go-to-cart-btn" style="display: block; width: 100%; background-color: #ff6600 !important; color: #ffffff !important; border: none !important; text-align: center; border-radius: 24px; padding: 10px 0; font-weight: 600; text-decoration: none;">
+                    View Cart &amp; Checkout
                 </a>
             </div>
         `;
     } else {
+        // Empty State Layout
         dropdownContainer.innerHTML = `
+            <div class="ps-cart-dropdown-header">
+                <span>Shopping Cart</span>
+            </div>
             <div class="ps-dropdown-empty-state">
                 <div class="ps-empty-cart-icon">
-                    <i class="fas fa-box-open"></i>
-                    <div class="ps-trolley-line"></div>
+                    <img src="Images/Category icons/cartic.jpg" alt="Empty Cart" class="ps-3d-cart-img">
                 </div>
                 <p class="ps-empty-text">Your cart is empty</p>
                 <a href="cart.html" class="ps-go-to-cart-btn">Go to cart</a>

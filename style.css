@@ -7,6 +7,10 @@
     --border-light: #e5e5e5;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -837,6 +841,7 @@ body.dark-mode {
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
+    margin-top: 35px;
 }
 /* --- UNIVERSAL WHITE TEXT STYLE --- */
 /* This will work for Slide 2 and any future slides you create */
@@ -3899,4 +3904,307 @@ body.dark-mode .full-watchlist-btn {
 .mega-right-col-sell .promo-btn {
     background-color: #ffffff !important;
     color: #0ea5e9 !important;
+}
+.hero-category-pills {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.hero-category-pills a {
+    font-family: "Market Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hero-category-pills a:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Unique colors for each category pill */
+.pill-electronics {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+.pill-fashion {
+    background-color: #fce4ec;
+    color: #880e4f;
+}
+
+.pill-beauty {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+/* Floating "Added to Cart" popup notification */
+.ps-added-toast {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: #1e293b;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.ps-added-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+/* ==========================================================================
+   EBAY-STYLE VENDOR HEADER & SUB-BAR
+   ========================================================================== */
+.ebay-vendor-title-bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 20px 0;
+}
+
+.ebay-title-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-main-heading {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+
+.ebay-list-item-btn {
+    background-color: #0066cc;
+    color: #ffffff;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 24px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ebay-list-item-btn:hover {
+    background-color: #004d99;
+}
+/* ==========================================================================
+   VENDOR SUB-HEADER BAR & MAIN CONTENT STYLING
+   ========================================================================== */
+
+.category-header-top {
+    max-width: 1350px;
+    margin: 15px auto 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumbs {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.breadcrumbs a {
+    color: #0066c0;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs .current {
+    color: #334155;
+    font-weight: 500;
+}
+
+.vendor-subheader-bar {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.vendor-page-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.start-selling-btn {
+    background-color: #0066cc;
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.start-selling-btn:hover {
+    background-color: #004d99;
+}
+
+.vendor-main-content {
+    max-width: 1350px;
+    margin: 10px auto 30px auto; /* Reduced the top margin from 30px to 10px */
+    padding: 0 20px;
+    font-family: inherit;
+}
+
+.vendor-hero {
+    background: linear-gradient(135deg, #ff7300, #ff9900);
+    color: #fff;
+    width: 100%;             /* Forces full width edge-to-edge */
+    border-radius: 0;        /* Removes curved edges so it touches the screen sides */
+    padding: 70px 20px;      /* Vertical padding */
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.vendor-hero-container {
+    max-width: 1350px;       /* Matches your main layout max-width */
+    margin: 0 auto;          /* Centers the inner content */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.vendor-hero-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    margin-top: -20px; /* Add this line to shift the title upwards */
+}
+
+.vendor-hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.95;
+}
+
+.vendor-cta-btn {
+    background: #ffffff;
+    color: #ff7300;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+    margin-top: 40px; /* Adjust this value (e.g., 25px to 40px) to push the button down to your marker line */
+}
+
+.vendor-cta-btn:hover {
+    background: #f1f1f1;
+}
+
+.vendor-hero-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    padding: 25px;
+    border-radius: 8px;
+    min-width: 280px;
+}
+
+.vendor-hero-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.vendor-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vendor-benefits-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vendor-steps {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.vendor-steps h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.step-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.step-num {
+    width: 40px;
+    height: 40px;
+    background: #ff7300;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+}
+
+.step-box h4 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.step-box p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0;
+}
+.hero-description-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; 
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.95;
 }
