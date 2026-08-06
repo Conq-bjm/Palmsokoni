@@ -4208,3 +4208,680 @@ body.dark-mode .full-watchlist-btn {
     margin-bottom: 25px;
     opacity: 0.95;
 }
+/* Trust / Feature Bar Styles */
+.vendor-trust-bar {
+    width: 100%;
+    background: #ffffff; /* Or background of your choice */
+    margin: 40px 0;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.trust-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.trust-icon {
+    font-size: 1.8rem;
+    color: #ff7300;
+    background: rgba(255, 115, 0, 0.1);
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.trust-text h3 {
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.trust-text p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* "Ready to Grow Your Business" Mid-Page Banner Styles */
+.vendor-growth-banner {
+    width: 100%;
+    background: #222222; /* Full background color stretching edge-to-edge */
+    margin: 40px 0;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.growth-banner-content {
+    max-width: 1350px;
+    margin: 0 auto;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.growth-banner-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.growth-banner-content p {
+    font-size: 1rem;
+    color: #cccccc;
+    margin: 0;
+}
+
+.growth-cta-btn {
+    background: #ff7300;
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.growth-cta-btn:hover {
+    background: #e06500;
+}
+
+/* Responsive layout adjustments for mobile/smaller screens */
+@media (max-width: 900px) {
+    .trust-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .growth-banner-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+}
+/* Vendor Listing Guide Styles */
+.vendor-listing-guide {
+    max-width: 1350px;
+    margin: 60px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.listing-guide-header {
+    margin-bottom: 35px;
+    text-align: left;
+}
+
+.listing-guide-header h2 {
+    font-size: 2.1rem;
+    color: #222;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.listing-guide-header p {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+.listing-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.listing-card {
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.listing-card h3 {
+    font-size: 1.25rem;
+    color: #111;
+    margin-bottom: 18px;
+    font-weight: bold;
+}
+
+.listing-card ul {
+    padding-left: 18px;
+    margin: 0;
+}
+
+.listing-card li {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.listing-card li:last-child {
+    margin-bottom: 0;
+}
+
+/* Custom Soft Background Colors */
+.card-peach {
+    background-color: #fff3ec;
+    border-top: 4px solid #ff7300;
+}
+
+.card-yellow {
+    background-color: #fcf6dc;
+    border-top: 4px solid #f59e0b;
+}
+
+.card-blue {
+    background-color: #eef4fc;
+    border-top: 4px solid #3b82f6;
+}
+
+.card-green {
+    background-color: #edf7ed;
+    border-top: 4px solid #10b981;
+}
+
+/* Responsive layout adjustment for smaller screens */
+@media (max-width: 768px) {
+    .listing-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* eBay-Style FAQ Section with Commanding Typography */
+.vendor-faq-section {
+    background-color: #ffffff;
+    padding: 70px 20px;
+    margin-top: 40px;
+    border-top: 1px solid #e5e7eb;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Clean, modern sans-serif */
+}
+
+.faq-container {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+/* Commanding, bold main heading matching eBay */
+.faq-container h2 {
+    font-size: 2.5rem; /* Larger, striking font size */
+    color: #111;
+    margin-bottom: 8px;
+    font-weight: 800; /* Extra bold for commanding presence */
+    letter-spacing: -0.5px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Removes the extra line and keeps just the clean text like your reference image */
+.faq-container h2::before {
+    display: none; 
+}
+
+.faq-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: left;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Stacked list layout */
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #e5e7eb;
+}
+
+.faq-item {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.faq-item:hover {
+    background-color: #fcfcfc;
+}
+
+/* Commanding question font style */
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 24px 10px;
+    font-size: 1.15rem; /* Slightly larger for readability */
+    color: #111;
+    font-weight: 700; /* Bold and commanding text */
+    letter-spacing: -0.2px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+}
+
+.faq-icon {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    background-color: #fff;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+    font-weight: 400;
+}
+
+/* Active State */
+.faq-item.active .faq-answer {
+    max-height: 250px;
+    padding: 0 10px 24px 10px;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+/* --- Tablet and Mobile Responsive Adjustments --- */
+
+/* For Tablets and Smaller Laptops (Max width: 1024px) */
+@media (max-width: 1024px) {
+    .vendor-listing-guide, 
+    .faq-container {
+        padding: 0 25px;
+    }
+}
+
+/* For Standard Mobile Phones & Large Phones (Max width: 768px) */
+@media (max-width: 768px) {
+    .listing-guide-header h2,
+    .faq-container h2 {
+        font-size: 2rem;
+    }
+
+    .listing-cards-grid {
+        grid-template-columns: 1fr; /* Stack cards into a single column */
+        gap: 20px;
+    }
+
+    .faq-question {
+        font-size: 1.05rem;
+        padding: 18px 10px;
+    }
+}
+
+/* For Smallest Devices like iPhone SE (Max width: 380px) */
+@media (max-width: 380px) {
+    .vendor-listing-guide, 
+    .faq-container {
+        padding: 0 15px;
+    }
+
+    .listing-guide-header h2,
+    .faq-container h2 {
+        font-size: 1.75rem;
+    }
+
+    .listing-card {
+        padding: 25px 20px; /* Tighter padding for narrow screens */
+    }
+
+    .faq-question {
+        font-size: 0.95rem;
+        padding: 15px 5px;
+    }
+}
+/* --- iPhone SE & Mobile Header Optimization --- */
+@media (max-width: 480px) {
+    /* Completely hide the top sign-in/utility strip */
+    .top-bar, 
+    .header-top, 
+    .site-top-banner { /* Update this selector if your specific top container class differs */
+        display: none !important;
+    }
+
+    /* Force the main header container to stay sticky or flush at the top */
+    header, 
+    .main-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+    }
+}
+/* --- iPhone SE Header Fix --- */
+@media (max-width: 480px) {
+    /* Hide the Shop by Category section completely */
+    .shop-by-cat {
+        display: none !important;
+    }
+
+    /* Tighten up the main header padding and layout for mobile */
+    .header-main {
+        padding: 6px 10px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Scale down the logo for a compact mobile look */
+    .header-main .logo {
+        font-size: 0.9rem !important;
+    }
+}
+/* --- iPhone SE Layout & Header Optimization --- */
+@media (max-width: 480px) {
+    /* Hide the original categories row, watchlist, messenger, and shop by category */
+    .nav-categories, 
+    .categories-bar, 
+    .sub-header-nav,
+    #watchlistWrapper,
+    .ps-messages-module,
+    .shop-by-category,
+    .header-main .shop-by-category,
+    .all-categories-trigger {
+        display: none !important;
+    }
+
+    /* Keep the main orange header compact */
+    .header-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 10px !important;
+    }
+
+    /* Shift the profile and cart group inward to the left */
+    .header-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important; 
+        margin-right: 25px !important; 
+    }
+
+    /* Ensure cart has no extra conflicting margins */
+    #cart-icon {
+        margin-left: 0 !important;
+    }
+
+    /* Reduce the size of the profile and cart icons accurately */
+    #cart-icon svg,
+    #cart-icon i,
+    #accountDropdownTrigger svg,
+    #accountDropdownTrigger i,
+    .header-actions svg,
+    .header-actions i,
+    .cart-wrapper svg,
+    .cart-wrapper i {
+        width: 18px !important;
+        height: 18px !important;
+        font-size: 18px !important;
+    }
+
+    /* Reduce the width and center the search bar */
+    .search-container {
+        position: absolute;
+        top: 38px; 
+        left: 30px !important;  
+        right: 30px !important; 
+        width: auto !important;
+        max-width: 315px !important;
+        margin: 0 auto !important;
+        background: #ffffff !important;
+        border: 2px solid #000000 !important;
+        border-radius: 20px !important;
+        padding: 0 !important;
+        height: 23px !important;
+        box-shadow: none !important;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        overflow: hidden !important;
+    }
+
+    /* Resize the input text field */
+    .search-container input[type="text"] {
+        flex: 1;
+        height: 100% !important;
+        font-size: 0.8rem !important;
+        padding: 0 10px !important;
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+    }
+
+    /* Tools container inside search bar */
+    .search-container .search-tools {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    /* Camera button sizing */
+    .search-container .camera-btn {
+        width: 26px !important;
+        height: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        border-left: 1px solid #ddd !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+    }
+
+    .search-container .camera-btn svg,
+    .search-container .camera-btn i {
+        width: 13px !important;
+        height: 13px !important;
+        font-size: 13px !important;
+    }
+
+    /* Search submit icon box */
+    .search-container .search-icon-box {
+        width: 32px !important;
+        height: 100% !important;
+        background: #000000 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+    }
+
+    .search-container .search-icon-box svg,
+    .search-container .search-icon-box i {
+        width: 13px !important;
+        height: 13px !important;
+        font-size: 13px !important;
+        color: #ffffff !important;
+    }
+
+    /* Push the hero section down */
+    .hero-section, 
+    .hero-container {
+        margin-top: 35px !important;
+    }
+}
+/* --- Hero Section Mobile Scaling --- */
+    
+    /* Reduce the overall height of the slider container & individual slides */
+    .slider-container,
+    .slide {
+        height: 220px !important;
+        min-height: 220px !important;
+        max-height: 220px !important;
+    }
+
+    /* Adjust the inner content layout wrapper */
+   /* Adjust the inner content layout wrapper to hug the left edge */
+    .hero-content-wrapper {
+        padding: 15px 10px 15px 10px !important; /* Reduced left padding */
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    /* Expand text content width and push text-align to the left */
+    .hero-text-content {
+        max-width: 58% !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+    }
+
+    /* Scale down heading font sizes */
+    .hero-text-content h1 {
+        font-size: 1.15rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* Scale down paragraph font sizes */
+    .hero-text-content p {
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* Scale down buttons (Shop Now / Sign in) */
+    .hero-text-content .shop-now-btn {
+        font-size: 0.7rem !important;
+        padding: 5px 10px !important;
+    }
+
+    /* Scale down category pills if present */
+    .hero-category-pills a {
+        font-size: 0.65rem !important;
+        padding: 3px 6px !important;
+    }
+
+    /* Scale down the right-side image container and images */
+    .hero-image-container {
+        max-width: 42% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .hero-image-container img {
+        max-height: 140px !important;
+        width: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* Scale down navigation dots */
+    .slider-dots-container {
+        bottom: 8px !important;
+    }
+
+    .slider-dots-container .dot {
+        width: 6px !important;
+        height: 6px !important;
+        margin: 0 3px !important;
+    }
+
+    /* Scale down animation / control arrows and pause button dock */
+    .hero-controls-dock {
+        bottom: 5px !important;
+        gap: 4px !important;
+    }
+
+    .hero-dock-btn {
+        width: 22px !important;
+        height: 22px !important;
+        font-size: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+
+    .hero-dock-btn svg,
+    .hero-dock-btn i {
+        width: 10px !important;
+        height: 10px !important;
+        font-size: 10px !important;
+    }
+/* Force the content wrapper to start right at the left edge */
+    .slide .hero-content-wrapper,
+    .slide.centered-slide .hero-content-wrapper {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: left !important;
+        padding: 10px 10px 10px 4px !important; /* Minimal left padding */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Pull text completely to the far left width boundary */
+    .slide .hero-text-content,
+    .slide.centered-slide .hero-text-content,
+    .hero-text-content {
+        display: block !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        left: 0 !important;
+        max-width: 60% !important;
+    }
+
+    .slide .hero-text-content h1,
+    .slide .hero-text-content p,
+    .slide .hero-text-content a {
+        text-align: left !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+/* --- Global Viewport & Overflow Containment --- */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    position: relative;
+}
+
+/* Ensure the main wrapper or container doesn't force a wider track */
+body {
+    width: 100vw;
+    box-sizing: border-box;
+}
