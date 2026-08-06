@@ -4739,9 +4739,8 @@ body.dark-mode .full-watchlist-btn {
         margin-top: 35px !important;
     }
 }
-/* --- Hero Section Mobile Scaling --- */
-    
-    /* Reduce the overall height of the slider container & individual slides */
+@media (max-width: 480px) {
+    /* Hero Slider Section Mobile Scaling & Alignment */
     .slider-container,
     .slide {
         height: 220px !important;
@@ -4749,53 +4748,56 @@ body.dark-mode .full-watchlist-btn {
         max-height: 220px !important;
     }
 
-    /* Adjust the inner content layout wrapper */
-   /* Adjust the inner content layout wrapper to hug the left edge */
-    .hero-content-wrapper {
-        padding: 15px 10px 15px 10px !important; /* Reduced left padding */
-        height: 100% !important;
+    .slide .hero-content-wrapper,
+    .slide.centered-slide .hero-content-wrapper {
         display: flex !important;
-        align-items: center !important;
+        flex-direction: row !important;
         justify-content: space-between !important;
+        align-items: center !important;
+        text-align: left !important;
+        padding: 10px 10px 10px 4px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    /* Expand text content width and push text-align to the left */
+    .slide .hero-text-content,
+    .slide.centered-slide .hero-text-content,
     .hero-text-content {
-        max-width: 58% !important;
-        padding-right: 0 !important;
+        display: block !important;
         text-align: left !important;
         margin-left: 0 !important;
+        padding-left: 0 !important;
+        left: 0 !important;
+        max-width: 60% !important;
     }
 
-    /* Scale down heading font sizes */
     .hero-text-content h1 {
         font-size: 1.15rem !important;
         line-height: 1.2 !important;
         margin-bottom: 6px !important;
+        text-align: left !important;
     }
 
-    /* Scale down paragraph font sizes */
     .hero-text-content p {
         font-size: 0.75rem !important;
         line-height: 1.3 !important;
         margin-bottom: 8px !important;
+        text-align: left !important;
     }
 
-    /* Scale down buttons (Shop Now / Sign in) */
     .hero-text-content .shop-now-btn {
         font-size: 0.7rem !important;
         padding: 5px 10px !important;
+        text-align: left !important;
     }
 
-    /* Scale down category pills if present */
     .hero-category-pills a {
         font-size: 0.65rem !important;
         padding: 3px 6px !important;
     }
 
-    /* Scale down the right-side image container and images */
     .hero-image-container {
-        max-width: 42% !important;
+        max-width: 40% !important;
         height: 100% !important;
         display: flex !important;
         align-items: center !important;
@@ -4808,7 +4810,6 @@ body.dark-mode .full-watchlist-btn {
         object-fit: contain !important;
     }
 
-    /* Scale down navigation dots */
     .slider-dots-container {
         bottom: 8px !important;
     }
@@ -4819,7 +4820,6 @@ body.dark-mode .full-watchlist-btn {
         margin: 0 3px !important;
     }
 
-    /* Scale down animation / control arrows and pause button dock */
     .hero-controls-dock {
         bottom: 5px !important;
         gap: 4px !important;
@@ -4841,38 +4841,7 @@ body.dark-mode .full-watchlist-btn {
         height: 10px !important;
         font-size: 10px !important;
     }
-/* Force the content wrapper to start right at the left edge */
-    .slide .hero-content-wrapper,
-    .slide.centered-slide .hero-content-wrapper {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        text-align: left !important;
-        padding: 10px 10px 10px 4px !important; /* Minimal left padding */
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Pull text completely to the far left width boundary */
-    .slide .hero-text-content,
-    .slide.centered-slide .hero-text-content,
-    .hero-text-content {
-        display: block !important;
-        text-align: left !important;
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-        left: 0 !important;
-        max-width: 60% !important;
-    }
-
-    .slide .hero-text-content h1,
-    .slide .hero-text-content p,
-    .slide .hero-text-content a {
-        text-align: left !important;
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-    }
+}
 /* --- Global Viewport & Overflow Containment --- */
 html, body {
     max-width: 100% !important;
